@@ -1,13 +1,103 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+
   <head>
     <meta charset="UTF-8">
     <title>Activity Tracker</title>
   </head>
-  <body>
-    <h1>Activity Tracker</h1>
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
 
+  <body>
+    <main class='main-page' id='mainPage'>
+      <header class='header-banner' id='headerBanner'>
+        <p class='header-date' id='headerDate'>today's date</p>
+        <h1 class='header-message' id='headerMessage'>welcome, name</h1>
+      </header>
+
+      <section class='grid-wrapper'>
+
+        <section class='home-page' id='homePage'>
+          <article class='step-goal' id='stepGoal'>
+            <h1>STEP GOAL</h1>
+            <h2>YOUR GOAL</h2>
+            <div class='data-medium' id='userStepGoal'>User Step Goal</div>
+            <h2>AVG USER GOAL</h2>
+            <div class='data-medium' id='avgStepGoal'>Step Goal Comparison</div>
+          </article>
+        </section>
+
+        <section class='hydration-page hidden' id='hydrationPage'>
+          <article class='weekly-water'>
+            <h1>WEEKLY WATER</h1>
+            <div class='data-small' id='userWeeklyWater'>user weekly water</div>
+            <!-- Weekly hydration Chart insert here -->
+          </article>
+          <article class='daily-water'>
+            <h1>DAILY WATER</h1>
+            <div class='data-large' id='userDailyWater'>user daily water</div>
+          </article>
+        </section>
+
+        <section class='sleep-page hidden' id='sleepPage'>
+          <article class='daily-sleep' id='dailySleep'>
+            <h2>DAILY HOURS SLEPT</h2>
+            <div class='data-medium' id='userHoursSlept'></div>
+            <h2>DAILY SLEEP QUALITY</h2>
+            <div class='data-medium' id='userSleepQuality'></div>
+          </article>
+          <article class='avg-sleep' id='avgSleep'>
+            <h2>AVG HOURS SLEPT</h2>
+            <div class='data-medium' id='avgHoursSlept'></div>
+            <h2>AVG SLEEP QUALITY</h2>
+            <div class='data-medium' id='avgSleepQuality'></div>
+          </article>
+          <article class='weekly-sleep' id='weeklySleep'>
+            <h1>WEEKLY SLEEP</h1>
+            <!-- 2 graphs with weekly sleep hrs and weekly sleep quality-->
+          </article>
+        </section>
+
+        <section class='activity-page hidden' id='activityPage'>
+          <article class='daily-steps' id='dailySteps'>
+            <h1>DAILY STEPS</h1>
+            <div class='data-medium' id='userDailyStepCount'>user daily steps</div>
+            <h1>MILES WALKED</h1>
+            <div class='data-medium' id='userDailyDistance'>user daily distance</div>
+          </article>
+          <article class='daily-activity' id='dailyActivity'>
+            <h1>MIN ACTIVE</h1>
+            <div class='data-medium' id='userDailyActivity'>user daily activity</div>
+          </article>
+          <article class='weekly-activity' id='weeklyActivity'>
+            <h1>WEEKLY MIN</h1>
+            <div class='user-weekly-activity' id='userWeeklyActivity'></div>
+            <!-- graph displaying user's weekly minutes active -->
+          </article>
+          <article class='compare-users' id='compareUsers'>
+            <h1>COMPARED TO OTHER USERS TODAY</h1>
+            <div class='data-small' id='compareUserActivity'>compare user activity</div>
+          </article>
+        </section>
+
+        <section class='user-info hidden' id='userInfo'>
+          <article class='user-info' id='userInfo'>
+            <p class='data-small' id='name'>name</p>
+            <p class='data-small' id='address'>address</p>
+            <p class='data-small' id='email'>email</p>
+            <p class='data-small' id='stride'>stride</p>
+          </article>
+        </section>
+
+      </section>
+
+      <nav class='nav-bar' id='navBar'>
+        <button class='home-button' id='homeButton' aria-label='home button'>Home</button>
+        <button class='hydration-button' id='hydrationButton' aria-label='hydration button'>Hydration</button>
+        <button class='sleep-button' id='sleepButton' aria-label='sleep button'>Sleep</button>
+        <button class='activity-button' id='activityButton' aria-label='activity button'>Activity</button>
+        <button class='user-button' id='userButton' aria-label='user button'>User Info</button>
+      </nav>
+</main>
 <!-- Do not include the scripts.js file here - it is done automatically by the webpack server -->
     <script src="bundle.js"></script>
   </body>
