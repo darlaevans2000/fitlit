@@ -1,28 +1,31 @@
 import { expect } from 'chai';
 import UserRepository from '../src/UserRepository';
+const userTestData = require('../src/data/userTestData.js');
+describe('User Repository', () => {
 
-const userData = require('../src/data/users');
-describe('UserRepository', function() {
-  let userRepository;
+  let userRepo;
+
   beforeEach(() => {
-    userRepository = new UserRepository(userData);
+    userRepo = new UserRepository(userTestData);
   });
 
-  it('should be a function', function () {
+  it('should be a function', () => {
     expect(UserRepository).to.be.a('function');
   });
 
-    it('should have a parameter to take in data', function () {
-      expect(this.data).to.equal(userData);
-    });
+  it('should be an instance of UserRepository', () => {
+    expect(userRepo).to.be.an.instanceof(UserRepository);
+  });
 
-      it('should have a method to determine user data based on users id', function () {
-        expect(findUserData).to.be.a('function');
-        expect(findUserData(2)).to.equal(userData[1]);
-      })
+  it('should store all user data', () => {
+    expect(userRepo.data).to.deep.equal(userTestData);
+  });
 
-      it('should have a method to determine average user step goal', function () {
-        expect(findAverageUserGoal).to.be.a('function');
-        expect(findAverageUserGoal()).to.equal(6667);
-      })
+  it('should be able to return user data by ID', () => {
+    expect(userRepo.findUserData(1)).to.equal(userTestData[0]);
+  });
+
+  it('should be able to return the average step goal of all users', () => {
+    expect(userRepo.findAverageUserGoal()).to.equal(10000);
+  });
 });
