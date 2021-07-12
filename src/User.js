@@ -4,13 +4,13 @@ class User {
     this.name = user.name;
     this.address = user.address;
     this.email = user.email;
-    this.stride = user.strideLength;
+    this.strideLength = user.strideLength;
     this.dailyStepGoal = user.dailyStepGoal;
     this.friends = user.friends;
   }
 
   returnFirstName() {
-    const firstName = this.name.split(' ');
+    const firstName = this.name.split(' ')[0];
     return firstName;
   }
 }
