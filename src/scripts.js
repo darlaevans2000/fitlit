@@ -11,6 +11,10 @@ const homeBtn = document.getElementById('headerDate');
 const userInfoBtn = document.getElementById('headerMessage');
 const homePage = document.getElementById('homePage');
 const userInfoPage = document.getElementById('userInfo');
+const headerMessage = document.getElementById('headerMessage');
+const avgStepGoal = document.getElementById('avgStepGoal');
+
+window.addEventListener("load", displayHomepage);
 
 function generateRandomNum(list){
   return Math.round(Math.random() * list.length);
@@ -22,11 +26,16 @@ fetchData('users/userData')
   .then(userData => {
     const userRepo = new UserRepo(userData.userData);
     const user = new User(userRepo.returnUserData(uniqueUserID));
+};
+
+displayHomepage(){
+  headerMessage.innerText = `Welcome ${user.returnFirstName()}!`
+  compareStepGoal()
 }
 
-//displayUserName()
-
-//compareStepGoal()
+compareStepGoal() {
+  avgStepGoal.innerText = `${userRespository.findAverageUserGoal()}`
+}
 
 function hide(elements) {
   elements.forEach(element => element.classList.add('hidden'));
