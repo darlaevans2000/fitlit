@@ -1,11 +1,12 @@
 import UserRepository from './UserRepository';
 import User from './User';
-import Activity from './Activity';
-import Hydration from './Hydration';
-import Sleep from './Sleep';
+// import Activity from './Activity';
+// import Hydration from './Hydration';
+// import Sleep from './Sleep';
 import './css/styles.css';
 import './images/turing-logo.png'
-
+let userRepo;
+let currentUser;
 
 const homeBtn = document.getElementById('headerDate');
 const userInfoBtn = document.getElementById('headerMessage');
@@ -17,23 +18,26 @@ const avgStepGoal = document.getElementById('avgStepGoal');
 window.addEventListener("load", displayHomepage);
 
 function generateRandomNum(list){
-  return Math.round(Math.random() * list.length);
+  return Math.floor(Math.random() * list.length);
 }
 
-const newUserID = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+// const newUserID = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
 
-fetchData('users/userData')
-  .then(userData => {
-    const userRepo = new UserRepo(userData.userData);
-    const user = new User(userRepo.returnUserData(uniqueUserID));
-};
+// function fetchData('users/userData') {
+//   .then(userData => {
+//     const userRepo = new UserRepo(userData.userData);
+//     const user = new User(userRepo.returnUserData(uniqueUserID));
+// }
+// };
 
-displayHomepage(){
-  headerMessage.innerText = `Welcome ${user.returnFirstName()}!`
-  compareStepGoal()
+function displayHomepage(){
+  userRepo = new UserRespository(userData);
+  currentUser = new User(userRepo.findUserData(generateRandomNum(userData))
+  // headerMessage.innerText = `Welcome ${currentUser.returnFirstName()}!`
+  // compareStepGoal()
 }
 
-compareStepGoal() {
+function compareStepGoal() {
   avgStepGoal.innerText = `${userRespository.findAverageUserGoal()}`
 }
 
