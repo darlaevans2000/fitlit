@@ -1,10 +1,11 @@
 import UserRepository from './UserRepository';
 import User from './User';
-import userData from '../src/data/users';
 import './css/styles.css';
-import './images/turing-logo.png'
+// import './images/turing-logo.png'
+import apiCalls from './data/apiCalls'
 let userRepo;
 let currentUser;
+let userData, activityData, sleepData, hydrationData;
 
 const homeBtn = document.getElementById('homeButton');
 const hydrationBtn = document.getElementById('hydrationButton');
@@ -19,7 +20,7 @@ const userInfoPage = document.getElementById('userInfo');
 const headerMessage = document.getElementById('headerMessage');
 const userAvgStepGoal = document.getElementById('avgStepGoal');
 
-window.addEventListener("load", loadPage);
+window.addEventListener("load", setData);
 userInfoBtn.addEventListener("click", displayUserPage);
 homeBtn.addEventListener("click", viewHome);
 hydrationBtn.addEventListener("click", viewHydration);
@@ -32,16 +33,21 @@ function getRandomIndex(array) {
   return index;
 }
 
-// function fetchData('users/userData') {
-//   .then(userData => {
-//     const userRepo = new UserRepo(userData.userData);
-//     const user = new User(userRepo.returnUserData(uniqueUserID));
-// }
-// };
 
-function loadPage() {
+function setData () {
+  apiCalls.getData()
+  .then(promise => {
+    userData = promise[0]['userData'];
+    hydrationData = promise[1]['hydrationData'];
+    sleepData = promise[2]['sleepData']
+    activityData = promise[3]['activityData']
     userRepo = new UserRepository(userData);
     currentUser = new User(userRepo.findUserData(getRandomIndex(userData)));
+    loadPage()
+  })
+}
+
+function loadPage() {
     displayHomeData();
 }
 
@@ -51,7 +57,6 @@ function displayHomeData() {
   headerMessage.innerText = `Welcome, ${currentUser.firstName}!`;
   userStepGoal.innerText = `${currentUser.dailyStepGoal}`;
   userAvgStepGoal.innerText = `${avgStepGoal}`;
-  //need to add date display that shows current date once activity data is added
 }
 
 function displayUserPage() {
@@ -93,12 +98,6 @@ function hide(elements) {
 function show(elements) {
   elements.forEach(element => element.classList.remove('hidden'))
 }
-
-
-
-
-
-
 
 
 // For a specific user, display how their step goal compares to the average step goal amongst all users (this display should not be hard-coded)
