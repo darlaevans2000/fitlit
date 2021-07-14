@@ -7,6 +7,9 @@ let userRepo;
 let currentUser;
 
 const homeBtn = document.getElementById('homeButton');
+const hydrationBtn = document.getElementById('hydrationButton');
+const sleepBtn = document.getElementById('sleepButton');
+const activityBtn = document.getElementById('activityButton');
 const userInfoBtn = document.getElementById('userButton');
 const homePage = document.getElementById('homePage');
 const sleepPage = document.getElementById('sleepPage');
@@ -19,6 +22,9 @@ const userAvgStepGoal = document.getElementById('avgStepGoal');
 window.addEventListener("load", loadPage);
 userInfoBtn.addEventListener("click", displayUserPage);
 homeBtn.addEventListener("click", viewHome);
+hydrationBtn.addEventListener("click", viewHydration);
+sleepBtn.addEventListener("click", viewSleep);
+activityBtn.addEventListener("click", viewActivity);
 
 
 function getRandomIndex(array) {
@@ -63,6 +69,22 @@ function viewHome() {
   homePage.classList.remove('hidden')
   hide([hydrationPage, sleepPage, activityPage, userInfoPage])
 }
+
+function viewHydration() {
+  hydrationPage.classList.remove('hidden')
+  hide([sleepPage, activityPage, userInfoPage, homePage])
+}
+
+function viewSleep() {
+  sleepPage.classList.remove('hidden')
+  hide([activityPage, userInfoPage, homePage, hydrationPage])
+}
+
+function viewActivity() {
+  activityPage.classList.remove('hidden')
+  hide([userInfoPage, homePage, hydrationPage, sleepPage])
+}
+
 
 function hide(elements) {
   elements.forEach(element => element.classList.add('hidden'));
