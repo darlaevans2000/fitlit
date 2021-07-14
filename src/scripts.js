@@ -1,27 +1,26 @@
 import UserRepository from './UserRepository';
 import User from './User';
-// import Activity from './Activity';
-// import Hydration from './Hydration';
-// import Sleep from './Sleep';
+import userData from '../src/data/users';
 import './css/styles.css';
 import './images/turing-logo.png'
 let userRepo;
 let currentUser;
 
-const homeBtn = document.getElementById('headerDate');
-const userInfoBtn = document.getElementById('headerMessage');
+const homeBtn = document.getElementById('homeButton');
+const userInfoBtn = document.getElementById('userButton');
 const homePage = document.getElementById('homePage');
 const userInfoPage = document.getElementById('userInfo');
 const headerMessage = document.getElementById('headerMessage');
-const avgStepGoal = document.getElementById('avgStepGoal');
+const userAvgStepGoal = document.getElementById('avgStepGoal');
 
-window.addEventListener("load", displayHomepage);
+window.addEventListener("load", loadPage);
+userInfoBtn.addEventListener("click", displayUserPage);
 
-function generateRandomNum(list){
-  return Math.floor(Math.random() * list.length);
+
+function getRandomIndex(array) {
+  const index = Math.floor(Math.random() * array.length);
+  return index;
 }
-
-// const newUserID = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
 
 // function fetchData('users/userData') {
 //   .then(userData => {
@@ -30,15 +29,24 @@ function generateRandomNum(list){
 // }
 // };
 
-function displayHomepage(){
-  userRepo = new UserRespository(userData);
-  currentUser = new User(userRepo.findUserData(generateRandomNum(userData))
-  // headerMessage.innerText = `Welcome ${currentUser.returnFirstName()}!`
-  // compareStepGoal()
+function loadPage() {
+    userRepo = new UserRepository(userData);
+    currentUser = new User(userRepo.findUserData(getRandomIndex(userData)));
+    viewHome()
 }
 
-function compareStepGoal() {
-  avgStepGoal.innerText = `${userRespository.findAverageUserGoal()}`
+function displayHomeData() {
+  currentUser.firstName = currentUser.returnFirstName();
+  const avgStepGoal = userRepo.findAverageUserGoal();
+  headerMessage.innerText = `Welcome, ${currentUser.firstName}!`;
+  userStepGoal.innerText = `${currentUser.dailyStepGoal}`;
+  userAvgStepGoal.innerText = `${avgStepGoal}`;
+  //need to add date display that shows current date once activity data is added
+}
+
+
+function viewHome() {
+  displayHomeData();
 }
 
 function hide(elements) {
