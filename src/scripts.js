@@ -17,6 +17,7 @@ const sleepPage = document.getElementById('sleepPage');
 const hydrationPage = document.getElementById('hydrationPage');
 const activityPage = document.getElementById('activityPage');
 const userInfoPage = document.getElementById('userInfo');
+const userInfoBox = document.getElementById('userInfoBox');
 const headerMessage = document.getElementById('headerMessage');
 const userAvgStepGoal = document.getElementById('avgStepGoal');
 
@@ -62,7 +63,7 @@ function displayHomeData() {
 function displayUserPage() {
   hide([hydrationPage, sleepPage, activityPage, homePage])
   userInfoPage.classList.remove("hidden")
-  userInfoPage.innerHTML = `
+  userInfoBox.innerHTML = `
     <p class='name' id='name'>${currentUser.name}</p>
     <p class='address' id='address'>${currentUser.address}</p>
     <p class='email' id='email'>${currentUser.email}</p>
