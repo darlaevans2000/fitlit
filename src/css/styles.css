@@ -172,3 +172,49 @@ section {
   width: 75%;
   height: 50%;
 }
+
+.hydration-page {
+ background-color: #2C666E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 10px black;
+  /* width:100%; */
+}
+
+.hydration-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 3vh;
+  grid-row-gap: 3vh;
+  padding-bottom: 3vh;
+  height: 50vh;
+  margin-left: 3vw;
+}
+
+.daily-water {
+  background-color: #F0EDEE;
+  grid-area: 1 / 1 / 4 / 7;
+  color: #07393C;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3%;
+  padding-left: 5%;
+  height: 25vh;
+  width: 60vw;
+}
+
+.weekly-water {
+  background-color: #F0EDEE;
+  grid-area: 4 / 1 / 7 / 7;
+  color: #07393C;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 3%;
+  padding-left: 5%;
+  height: 25vh;
+  width: 60vw;
+}

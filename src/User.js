@@ -13,6 +13,17 @@ class User {
     const firstName = this.name.split(' ')[0];
     return firstName;
   }
+
+  getDailyOunces(date, hydrationData) {
+    const entry = hydrationData.find(entry => { 
+      entry.date === date
+      if ((entry.date === date) && (entry.userID === this.id)) {
+        return entry.numOunces;
+      }
+    })
+    
+    return entry.numOunces;
+  }
 }
 
 export default User;

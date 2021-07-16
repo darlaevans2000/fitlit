@@ -1,8 +1,10 @@
 import UserRepository from './UserRepository';
 import User from './User';
+import Hydration from './Hydration';
 import './css/styles.css';
 // import './images/turing-logo.png'
 import apiCalls from './data/apiCalls'
+const currentDate = '2019/06/15';
 let userRepo;
 let currentUser;
 let userData, activityData, sleepData, hydrationData;
@@ -15,6 +17,7 @@ const userInfoBtn = document.getElementById('userButton');
 const homePage = document.getElementById('homePage');
 const sleepPage = document.getElementById('sleepPage');
 const hydrationPage = document.getElementById('hydrationPage');
+const dailyWater = document.getElementById('userDailyWater');
 const activityPage = document.getElementById('activityPage');
 const userInfoPage = document.getElementById('userInfo');
 const userInfoBox = document.getElementById('userInfoBox');
@@ -79,6 +82,8 @@ function viewHome() {
 function viewHydration() {
   hydrationPage.classList.remove('hidden')
   hide([sleepPage, activityPage, userInfoPage, homePage])
+  const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
+  dailyWater.innerText = `${dailyOz} oz`;
 }
 
 function viewSleep() {
