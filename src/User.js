@@ -24,6 +24,15 @@ class User {
     
     return entry.numOunces;
   }
+
+  getWeeklyOunces(startDate, hydrationData) {
+    const index = hydrationData.findIndex(entry => entry.date === startDate);
+    const weekLog = hydrationData.slice(index, index + 7);
+
+    return weekLog.map(entry => entry.numOunces);
+  }
+  
+
 }
 
 export default User;
