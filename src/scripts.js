@@ -95,8 +95,14 @@ function viewHydration() {
   const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
   displayWeekHydrationChart()
   dailyWater.innerText = `${dailyOz} oz`;
+  // displayWeekHydrationGraph()
+
+  //
 }
 
+  // function displayWeekHydrationGraph(){
+
+  // }
 function viewSleep() {
   sleepPage.classList.remove('hidden')
   hide([activityPage, userInfoPage, homePage, hydrationPage])
