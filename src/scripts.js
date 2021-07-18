@@ -4,7 +4,8 @@ import Hydration from './Hydration';
 import './css/styles.css';
 // import './images/turing-logo.png'
 import apiCalls from './data/apiCalls'
-const currentDate = '2019/06/15';
+const currentDate = '2019/09/22';
+const startDate = '2019/09/15';
 let userRepo;
 let currentUser;
 let userData, activityData, sleepData, hydrationData;
@@ -22,6 +23,7 @@ const activityPage = document.getElementById('activityPage');
 const userInfoPage = document.getElementById('userInfo');
 const userInfoBox = document.getElementById('userInfoBox');
 const headerMessage = document.getElementById('headerMessage');
+const headerDate = document.getElementById('headerDate')
 const userAvgStepGoal = document.getElementById('avgStepGoal');
 
 window.addEventListener("load", setData);
@@ -55,12 +57,20 @@ function loadPage() {
     displayHomeData();
 }
 
+function getPrettyDate(date) {
+var date = new Date(date);  
+let str = date.toDateString(); 
+return str
+}
+
 function displayHomeData() {
   currentUser.firstName = currentUser.returnFirstName();
   const avgStepGoal = userRepo.findAverageUserGoal();
   headerMessage.innerText = `Welcome, ${currentUser.firstName}!`;
   userStepGoal.innerText = `${currentUser.dailyStepGoal}`;
   userAvgStepGoal.innerText = `${avgStepGoal}`;
+  headerDate.innerText = `${getPrettyDate(currentDate)}`;
+
 }
 
 function displayUserPage() {
@@ -83,9 +93,16 @@ function viewHydration() {
   hydrationPage.classList.remove('hidden')
   hide([sleepPage, activityPage, userInfoPage, homePage])
   const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
+  displayWeekHydrationChart()
   dailyWater.innerText = `${dailyOz} oz`;
+  // displayWeekHydrationGraph()
+
+  //
 }
 
+  // function displayWeekHydrationGraph(){
+
+  // }
 function viewSleep() {
   sleepPage.classList.remove('hidden')
   hide([activityPage, userInfoPage, homePage, hydrationPage])

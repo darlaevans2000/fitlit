@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import User from '../src/User';
 const userTestData = require('../src/data/userTestData')
+const hydrationTestData = require('../src/data/hydrationTestData')
 
 describe('User', () => {
   let user1
@@ -49,4 +50,22 @@ describe('User', () => {
   it('Should be able to return only users first name', () => {
     expect(user1.returnFirstName()).to.equal('Herminia');
   })
+
+  it('should be able to retrieve the ounces consumed by a user on a specific date', function() {
+    const numOunces = user1.getDailyOunces('2019/06/18', hydrationTestData);
+    
+    expect(numOunces).to.equal(80);
+  });
+  
+  it('should calculate the average daily water intake for a user', function() {
+    const avgDailyWater = user1.calculateAvgDailyWater(hydrationTestData);
+
+    expect(avgDailyWater).to.equal(75);
+  });
+
+  it('should be able to retrieve the daily water intake for a user over the course of a week', function() {
+    const ouncesOverWeek = user1.getWeeklyOunces('2019/06/15', hydrationTestData);
+
+    expect(ouncesOverWeek).to.deep.equal([ 100, 50, 20, 80, 60, 90, 100 ]);
+  });
 })
