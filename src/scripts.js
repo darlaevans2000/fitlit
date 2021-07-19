@@ -8,23 +8,33 @@ import './css/styles.css';
 import apiCalls from './data/apiCalls'
 const currentDate = '2019/09/22';
 const startDate = '2019/09/15';
-let userRepo;
-let currentUser;
-let userData, activityData, sleepData, hydrationData;
+
+let userRepo, currentUser, userData, activityData, sleepData, hydrationData;
 
 const homeBtn = document.getElementById('homeButton');
+
 const hydrationBtn = document.getElementById('hydrationButton');
+const hydrationPage = document.getElementById('hydrationPage');
+const dailyWater = document.getElementById('userDailyWater');
+
 const userHoursSlept = document.getElementById('userHoursSlept');
 const userSleepQuality = document.getElementById('userSleepQuality');
 const userAvgSleepQuality = document.getElementById('avgSleepQuality');
 const userAvgHoursSlept = document.getElementById('avgHoursSlept');
 const sleepBtn = document.getElementById('sleepButton');
+
 const activityBtn = document.getElementById('activityButton');
+const userDailyStepCount = document.getElementById('userDailyStepCount');
+const userDailyDistance = document.getElementById('userDailyDistance');
+const userDailyMinActive = document.getElementById('userDailyMinActive');
+const compareUserDailyActivity = document.getElementById('compareUserDailyActivity');
+
+
+
+
 const userInfoBtn = document.getElementById('userButton');
 const homePage = document.getElementById('homePage');
 const sleepPage = document.getElementById('sleepPage');
-const hydrationPage = document.getElementById('hydrationPage');
-const dailyWater = document.getElementById('userDailyWater');
 const activityPage = document.getElementById('activityPage');
 const userInfoPage = document.getElementById('userInfo');
 const userInfoBox = document.getElementById('userInfoBox');
@@ -100,7 +110,6 @@ function viewHydration() {
   hydrationPage.classList.remove('hidden')
   hide([sleepPage, activityPage, userInfoPage, homePage])
   const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
-  displayWeekHydrationChart()
   dailyWater.innerText = `${dailyOz} oz`;
   // displayWeekHydrationGraph()
 
@@ -139,9 +148,49 @@ function viewSleep() {
   displaySleepData()
 }
 
+function displayActivityData() {
+  displayDailySteps()
+  displayMinutesActive()
+  displayActivityStatComparison()
+  // displayActivityChart()
+}
+
+function displayDailySteps() {
+  const userDailySteps = currentUser.getActivityDataByDate(activityData, currentDate, 'numSteps');
+  const userDistance = currentUser.getDailyMilesWalked(activityData, currentDate);
+  userDailyStepCount.innerText = `${userDailySteps}`;
+  userDailyDistance.innerText = `${userDistance}`;
+}
+
+function displayMinutesActive() {
+  const userMinActive = currentUser.getActivityDataByDate(activityData, currentDate, 'minutesActive');
+  userDailyMinActive.innerText = `${userMinActive}`;
+}
+
+function displayActivityStatComparison() {
+  const usersDailySteps = currentUser.getActivityDataByDate(activityData, currentDate, 'numSteps');
+  const usersDailyMinActive = currentUser.getActivityDataByDate(activityData, currentDate, 'minutesActive');
+  const usersDailyStairs = currentUser.getActivityDataByDate(activityData, currentDate, 'flightsOfStairs');
+
+  const userWideDailySteps = userRepo.getAllUsersAvgByDate(currentDate, 'numSteps', activityData);
+  const userWideDailyMinActive = userRepo.getAllUsersAvgByDate(currentDate, 'minutesActive', activityData);
+  const userWideDailyStairs = userRepo.getAllUsersAvgByDate(currentDate, 'flightsOfStairs', activityData);
+
+  const stepComparison = Math.round((usersDailySteps / userWideDailySteps) * 100);
+  const minComparison = Math.round((usersDailyMinActive / userWideDailyMinActive) * 100);
+  const stairComparison = Math.round((usersDailyStairs / userWideDailyStairs) * 100);
+
+  compareUserDailyActivity.innerText = `
+      Steps: ${stepComparison}%
+      Min: ${minComparison}%
+      Stairs: ${stairComparison}%`;
+}
+
+
 function viewActivity() {
   activityPage.classList.remove('hidden')
   hide([userInfoPage, homePage, hydrationPage, sleepPage])
+  displayActivityData()
 }
 
 

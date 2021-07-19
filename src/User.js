@@ -82,7 +82,8 @@ class User {
   }
 
   getActivityDataByDate(activityData, date, property) {
-    const dateRequested = activityData.find(entry => entry.date === date);
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dateRequested = usersData.find(entry => entry.date === date);
 
     return dateRequested[property];
   }
