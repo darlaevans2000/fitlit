@@ -145,4 +145,10 @@ describe('User', () => {
 
     expect(userStepGoalDays).to.deep.equal(['2019/06/17', '2019/06/18', '2019/06/20', '2019/06/21']);
   });
+
+  it('should retrieve the most flights climbed record for a user', function () {
+    const flightRecord = user1.getFlightsClimbedRecord(activityTestData);
+
+    expect(flightRecord).to.equal(37);
+  });
 })

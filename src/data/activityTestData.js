@@ -57,8 +57,22 @@ const activityTestData = [
   },
   {
     "userID": 2,
+    "date": "2019/06/15",
+    "numSteps": 10219,
+    "minutesActive": 150,
+    "flightsOfStairs": 22
+  },
+  {
+    "userID": 2,
     "date": "2019/06/21",
     "numSteps": 13219,
+    "minutesActive": 235,
+    "flightsOfStairs": 37
+  },
+  {
+    "userID": 3,
+    "date": "2019/06/15",
+    "numSteps": 9219,
     "minutesActive": 235,
     "flightsOfStairs": 37
   },
