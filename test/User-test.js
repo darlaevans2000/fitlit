@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import User from '../src/User';
 const userTestData = require('../src/data/userTestData')
 const hydrationTestData = require('../src/data/hydrationTestData')
+const sleepTestData = require('../src/data/sleepTestData')
 
 describe('User', () => {
   let user1
@@ -50,7 +51,7 @@ describe('User', () => {
   it('Should be able to return only users first name', () => {
     expect(user1.returnFirstName()).to.equal('Herminia');
   })
-
+//hydration
   it('should be able to retrieve the ounces consumed by a user on a specific date', function() {
     const numOunces = user1.getDailyOunces('2019/06/18', hydrationTestData);
     
@@ -67,5 +68,42 @@ describe('User', () => {
     const ouncesOverWeek = user1.getWeeklyOunces('2019/06/15', hydrationTestData);
 
     expect(ouncesOverWeek).to.deep.equal([ 100, 50, 20, 80, 60, 90, 100 ]);
+  });
+
+  // sleep
+  it('should be able to retrieve the hours slept by a user on a specific date', function() {
+    const hoursSlept = user1.getSleepDataByDate(sleepTestData, '2019/06/17', 'hoursSlept');
+
+    expect(hoursSlept).to.equal(10);
+  });
+
+  it('should be able to retrieve the sleep quality of a user on a specific date', function() {
+    const sleepQuality = user1.getSleepDataByDate(sleepTestData, '2019/06/16', 'sleepQuality');
+
+    expect(sleepQuality).to.equal(2);
+  });
+
+  it('should calculate a users average daily hours slept', function() {
+    const avgHrsSlept = user1.getAvgSleepData(sleepTestData, 'hoursSlept');
+
+    expect(avgHrsSlept).to.equal(7.6);
+  });
+
+  it('should calculate a users average daily sleep quality', function() {
+    const avgSleepQuality = user1.getAvgSleepData(sleepTestData, 'sleepQuality');
+
+    expect(avgSleepQuality).to.equal(3.4);
+  });
+
+  it('should be able to retrieve the hours slept data for a user throughout a given week', function() {
+    const hoursSleptWeek = user1.getSleepDataByWeek(sleepTestData, '2019/06/15', 'hoursSlept');
+    
+    expect(hoursSleptWeek).to.deep.equal([ 6, 6, 10, 8, 5, 10, 8 ]);
+  });
+
+  it('should be able to retrieve the sleep quality data for a user throughout a given week', function() {
+    const sleepQualityWeek = user1.getSleepDataByWeek(sleepTestData, '2019/06/15', 'sleepQuality');
+
+    expect(sleepQualityWeek).to.deep.equal([ 3, 2, 4, 4, 2, 4, 5 ]);
   });
 })
