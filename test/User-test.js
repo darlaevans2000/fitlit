@@ -3,6 +3,7 @@ import User from '../src/User';
 const userTestData = require('../src/data/userTestData')
 const hydrationTestData = require('../src/data/hydrationTestData')
 const sleepTestData = require('../src/data/sleepTestData')
+const activityTestData = require('../src/data/activityTestData');
 
 describe('User', () => {
   let user1
@@ -51,6 +52,7 @@ describe('User', () => {
   it('Should be able to return only users first name', () => {
     expect(user1.returnFirstName()).to.equal('Herminia');
   })
+
 //hydration
   it('should be able to retrieve the ounces consumed by a user on a specific date', function() {
     const numOunces = user1.getDailyOunces('2019/06/18', hydrationTestData);
@@ -105,5 +107,48 @@ describe('User', () => {
     const sleepQualityWeek = user1.getSleepDataByWeek(sleepTestData, '2019/06/15', 'sleepQuality');
 
     expect(sleepQualityWeek).to.deep.equal([ 3, 2, 4, 4, 2, 4, 5 ]);
+  });
+
+  // Activity 
+  it('should be able to calculate the miles walked by a user on a specific date', function() {
+    const userMiles = user1.getDailyMilesWalked(activityTestData, '2019/06/16');
+
+    expect(userMiles).to.equal(2.7);
+  });
+
+  it('should retrieve the number of steps for a user on a given date', function() {
+    const numSteps = user1.getActivityDataByDate(activityTestData, '2019/06/15', 'numSteps');
+
+    expect(numSteps).to.equal(3517);
+  });
+
+  it('should retrieve minutes active for a user on a given date', function() {
+    const minActive = user1.getActivityDataByDate(activityTestData, '2019/06/15', 'minutesActive');
+
+    expect(minActive).to.equal(101);
+  });
+
+  it('should determine whether a user reached their step goal on a given date', function() {
+    const userStepGoal = user1.getStepGoalResult(activityTestData, '2019/06/16');
+
+    expect(userStepGoal).to.equal(false);
+  });
+
+  it('should calculate the average minutes active for a user during a given week', function() {
+    const avgMinutes = user1.getActivityAvgByWeek(activityTestData, '2019/06/15', 'minutesActive');
+
+    expect(avgMinutes).to.equal(154);
+  });
+
+  it('should identify dates when user exceeded step goal', function() {
+    const userStepGoalDays = user1.getDatesExceedingStepGoal(activityTestData);
+
+    expect(userStepGoalDays).to.deep.equal(['2019/06/17', '2019/06/18', '2019/06/20', '2019/06/21']);
+  });
+
+  it('should retrieve the most flights climbed record for a user', function () {
+    const flightRecord = user1.getFlightsClimbedRecord(activityTestData);
+
+    expect(flightRecord).to.equal(37);
   });
 })

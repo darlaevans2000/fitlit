@@ -71,6 +71,59 @@ class User {
     return weekLog.map(entry => entry[property]);
   }
 
+  //activity
+    getDailyMilesWalked(activityData, date) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dateStats = usersData.find(entry => entry.date === date);
+    const feetWalked = dateStats.numSteps * this.strideLength;
+    const milesWalked = feetWalked / 5280;
+
+    return parseFloat(milesWalked.toFixed(1));
+  }
+
+  getActivityDataByDate(activityData, date, property) {
+    const dateRequested = activityData.find(entry => entry.date === date);
+
+    return dateRequested[property];
+  }
+
+  getStepGoalResult(activityData, date) {
+    const dailyInfo = activityData.find(entry => entry.date === date);
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+
+    return dailyInfo.numSteps >= usersData.dailyStepGoal;
+  }
+
+  getActivityAvgByWeek(activityData, startDate, property) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const index = usersData.findIndex(entry => entry.date === startDate);
+    const weekLog = usersData.slice(index, index + 8);
+    const weeklyStats = weekLog.map(entry => entry[property]);
+    const total = weeklyStats.reduce((sum, num) => {
+      return sum + num;
+    });
+
+    return Math.round(total / 7);
+  }
+
+  getDatesExceedingStepGoal(activityData) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dailyStepGoal = this.dailyStepGoal;
+    const stepGoalExceededDays = usersData.filter(entry => entry.numSteps > dailyStepGoal);
+
+    return stepGoalExceededDays.map(entry => entry.date);
+  }
+
+  getFlightsClimbedRecord(activityData) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const sortedEntries = usersData.sort((a, b) => {
+      return b.flightsOfStairs - a.flightsOfStairs;
+    })
+    const [ maxFlights ] = sortedEntries;
+
+    return maxFlights.flightsOfStairs;
+  }
+
 }
 
 export default User;
