@@ -108,4 +108,11 @@ describe('User', () => {
 
     expect(sleepQualityWeek).to.deep.equal([ 3, 2, 4, 4, 2, 4, 5 ]);
   });
+
+  // Activity 
+  it('should be able to calculate the miles walked by a user on a specific date', function() {
+    const userMiles = user1.getDailyMilesWalked(activityTestData, '2019/06/16');
+
+    expect(userMiles).to.equal(2.7);
+  });
 })

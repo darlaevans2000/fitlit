@@ -71,6 +71,16 @@ class User {
     return weekLog.map(entry => entry[property]);
   }
 
+  //activity
+    getDailyMilesWalked(activityData, date) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dateStats = usersData.find(entry => entry.date === date);
+    const feetWalked = dateStats.numSteps * this.strideLength;
+    const milesWalked = feetWalked / 5280;
+
+    return parseFloat(milesWalked.toFixed(1));
+  }
+
 }
 
 export default User;
