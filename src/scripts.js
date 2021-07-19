@@ -111,12 +111,10 @@ function viewHydration() {
   hide([sleepPage, activityPage, userInfoPage, homePage])
   const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
   dailyWater.innerText = `${dailyOz} oz`;
-  // displayWeekHydrationGraph()
-
-  //
+  // displayWeekHydrationChart() ON LN 117
 }
 
-  // function displayWeekHydrationGraph(){
+  // function displayWeekHydrationChart(){
 
   // }
 
