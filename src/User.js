@@ -94,6 +94,18 @@ class User {
     return dailyInfo.numSteps >= usersData.dailyStepGoal;
   }
 
+  getActivityAvgByWeek(activityData, startDate, property) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const index = usersData.findIndex(entry => entry.date === startDate);
+    const weekLog = usersData.slice(index, index + 8);
+    const weeklyStats = weekLog.map(entry => entry[property]);
+    const total = weeklyStats.reduce((sum, num) => {
+      return sum + num;
+    });
+
+    return Math.round(total / 7);
+  }
+
 }
 
 export default User;

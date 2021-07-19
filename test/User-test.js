@@ -133,4 +133,11 @@ describe('User', () => {
 
     expect(userStepGoal).to.equal(false);
   });
+
+  it('should calculate the average minutes active for a user during a given week', function() {
+    const avgMinutes = user1.getActivityAvgByWeek(activityTestData, '2019/06/15', 'minutesActive');
+
+    expect(avgMinutes).to.equal(154);
+  });
+
 })
