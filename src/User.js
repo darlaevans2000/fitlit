@@ -14,6 +14,7 @@ class User {
     return firstName;
   }
 
+//hydration
   getDailyOunces(date, hydrationData) {
     const entry = hydrationData.find(entry => { 
       entry.date === date
@@ -39,6 +40,35 @@ class User {
     const weekLog = hydrationData.slice(index, index + 7);
 
     return weekLog.map(entry => entry.numOunces);
+  }
+
+  //sleep
+
+  getSleepDataByDate(sleepData, date, property) {
+    // used for sleep quality AND sleep hrs
+    const entry = sleepData.find(entry => entry.date === date)
+    
+    return entry[property];
+  }
+
+  getAvgSleepData(sleepData, property) {
+    // this can be used for hrs and sleep quality average
+    const usersData = sleepData.filter(entry => entry.userID === this.id)
+    const dailySum = usersData.map(entry => entry[property]);
+    const totalSum = dailySum.reduce((sum, num) => {
+      return sum + num;
+    });
+    const avgAmount = totalSum / dailySum.length;
+
+    return parseFloat(avgAmount.toFixed(1));
+  }
+
+  getSleepDataByWeek(sleepData, startDate, property) {
+    // works for sleep hrs and sleep qual 
+    const index = sleepData.findIndex(entry => entry.date === startDate);
+    const weekLog = sleepData.slice(index, index + 7);
+
+    return weekLog.map(entry => entry[property]);
   }
 
 }
