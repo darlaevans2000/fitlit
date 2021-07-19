@@ -3,6 +3,7 @@ import User from '../src/User';
 const userTestData = require('../src/data/userTestData')
 const hydrationTestData = require('../src/data/hydrationTestData')
 const sleepTestData = require('../src/data/sleepTestData')
+const activityTestData = require('../src/data/activityTestData');
 
 describe('User', () => {
   let user1
@@ -51,6 +52,7 @@ describe('User', () => {
   it('Should be able to return only users first name', () => {
     expect(user1.returnFirstName()).to.equal('Herminia');
   })
+
 //hydration
   it('should be able to retrieve the ounces consumed by a user on a specific date', function() {
     const numOunces = user1.getDailyOunces('2019/06/18', hydrationTestData);
