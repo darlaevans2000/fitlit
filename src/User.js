@@ -106,6 +106,14 @@ class User {
     return Math.round(total / 7);
   }
 
+  getDatesExceedingStepGoal(activityData) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dailyStepGoal = this.dailyStepGoal;
+    const stepGoalExceededDays = usersData.filter(entry => entry.numSteps > dailyStepGoal);
+
+    return stepGoalExceededDays.map(entry => entry.date);
+  }
+
 }
 
 export default User;

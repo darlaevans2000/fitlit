@@ -140,4 +140,9 @@ describe('User', () => {
     expect(avgMinutes).to.equal(154);
   });
 
+  it('should identify dates when user exceeded step goal', function() {
+    const userStepGoalDays = user1.getDatesExceedingStepGoal(activityTestData);
+
+    expect(userStepGoalDays).to.deep.equal(['2019/06/17', '2019/06/18', '2019/06/20', '2019/06/21']);
+  });
 })
