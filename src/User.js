@@ -81,6 +81,19 @@ class User {
     return parseFloat(milesWalked.toFixed(1));
   }
 
+  getActivityDataByDate(activityData, date, property) {
+    const dateRequested = activityData.find(entry => entry.date === date);
+
+    return dateRequested[property];
+  }
+
+  getStepGoalResult(activityData, date) {
+    const dailyInfo = activityData.find(entry => entry.date === date);
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+
+    return dailyInfo.numSteps >= usersData.dailyStepGoal;
+  }
+
 }
 
 export default User;
