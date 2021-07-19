@@ -14,6 +14,7 @@ class User {
     return firstName;
   }
 
+//hydration
   getDailyOunces(date, hydrationData) {
     const entry = hydrationData.find(entry => { 
       entry.date === date
@@ -39,6 +40,88 @@ class User {
     const weekLog = hydrationData.slice(index, index + 7);
 
     return weekLog.map(entry => entry.numOunces);
+  }
+
+  //sleep
+
+  getSleepDataByDate(sleepData, date, property) {
+    // used for sleep quality AND sleep hrs
+    const entry = sleepData.find(entry => entry.date === date)
+    
+    return entry[property];
+  }
+
+  getAvgSleepData(sleepData, property) {
+    // this can be used for hrs and sleep quality average
+    const usersData = sleepData.filter(entry => entry.userID === this.id)
+    const dailySum = usersData.map(entry => entry[property]);
+    const totalSum = dailySum.reduce((sum, num) => {
+      return sum + num;
+    });
+    const avgAmount = totalSum / dailySum.length;
+
+    return parseFloat(avgAmount.toFixed(1));
+  }
+
+  getSleepDataByWeek(sleepData, startDate, property) {
+    // works for sleep hrs and sleep qual 
+    const index = sleepData.findIndex(entry => entry.date === startDate);
+    const weekLog = sleepData.slice(index, index + 7);
+
+    return weekLog.map(entry => entry[property]);
+  }
+
+  //activity
+    getDailyMilesWalked(activityData, date) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dateStats = usersData.find(entry => entry.date === date);
+    const feetWalked = dateStats.numSteps * this.strideLength;
+    const milesWalked = feetWalked / 5280;
+
+    return parseFloat(milesWalked.toFixed(1));
+  }
+
+  getActivityDataByDate(activityData, date, property) {
+    const dateRequested = activityData.find(entry => entry.date === date);
+
+    return dateRequested[property];
+  }
+
+  getStepGoalResult(activityData, date) {
+    const dailyInfo = activityData.find(entry => entry.date === date);
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+
+    return dailyInfo.numSteps >= usersData.dailyStepGoal;
+  }
+
+  getActivityAvgByWeek(activityData, startDate, property) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const index = usersData.findIndex(entry => entry.date === startDate);
+    const weekLog = usersData.slice(index, index + 8);
+    const weeklyStats = weekLog.map(entry => entry[property]);
+    const total = weeklyStats.reduce((sum, num) => {
+      return sum + num;
+    });
+
+    return Math.round(total / 7);
+  }
+
+  getDatesExceedingStepGoal(activityData) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const dailyStepGoal = this.dailyStepGoal;
+    const stepGoalExceededDays = usersData.filter(entry => entry.numSteps > dailyStepGoal);
+
+    return stepGoalExceededDays.map(entry => entry.date);
+  }
+
+  getFlightsClimbedRecord(activityData) {
+    const usersData = activityData.filter(entry => entry.userID === this.id)
+    const sortedEntries = usersData.sort((a, b) => {
+      return b.flightsOfStairs - a.flightsOfStairs;
+    })
+    const [ maxFlights ] = sortedEntries;
+
+    return maxFlights.flightsOfStairs;
   }
 
 }

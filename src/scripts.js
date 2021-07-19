@@ -14,6 +14,10 @@ let userData, activityData, sleepData, hydrationData;
 
 const homeBtn = document.getElementById('homeButton');
 const hydrationBtn = document.getElementById('hydrationButton');
+const userHoursSlept = document.getElementById('userHoursSlept');
+const userSleepQuality = document.getElementById('userSleepQuality');
+const userAvgSleepQuality = document.getElementById('avgSleepQuality');
+const userAvgHoursSlept = document.getElementById('avgHoursSlept');
 const sleepBtn = document.getElementById('sleepButton');
 const activityBtn = document.getElementById('activityButton');
 const userInfoBtn = document.getElementById('userButton');
@@ -106,10 +110,33 @@ function viewHydration() {
   // function displayWeekHydrationGraph(){
 
   // }
+
+function displaySleepData() {
+  displayCurrentSleepData()
+  displayAvgSleepData()
+  // displayWeeklySleepChart()
+}
+
+function displayCurrentSleepData() {
+  const dailyHoursSlept = currentUser.getSleepDataByDate(sleepData, currentDate, 'hoursSlept');
+  const dailySleepQuality = currentUser.getSleepDataByDate(sleepData, currentDate, 'sleepQuality');
+  userHoursSlept.innerText = `${dailyHoursSlept}`;
+  userSleepQuality.innerText = `${dailySleepQuality}`;
+}
+
+function displayAvgSleepData() {
+  const avgHoursSlept = currentUser.getAvgSleepData(sleepData, 'hoursSlept');
+  const avgSleepQuality = currentUser.getAvgSleepData(sleepData, 'sleepQuality');
+  userAvgHoursSlept.innerText = `${avgHoursSlept}`;
+  userAvgSleepQuality.innerText = `${avgSleepQuality}`;
+}
+
+
 function viewSleep() {
   sleepPage.classList.remove('hidden')
   hide([activityPage, userInfoPage, homePage, hydrationPage])
   viewSleepChart();
+  displaySleepData()
 }
 
 function viewActivity() {
