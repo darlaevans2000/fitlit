@@ -6,14 +6,16 @@ import './css/styles.css';
 import apiCalls from './data/apiCalls'
 const currentDate = '2019/09/21';
 const startDate = '2019/09/15';
-let userWeeklyWater, userWeeklySleepHrs, userWeeklySleepQual, userWeeklySteps, userWeeklyMinActive, userWeeklyFlightsOfStairs;
+let userWeeklyWater, userWeeklySleepHrs, userWeeklySleepQual, userWeeklySteps;
+let userWeeklyMinActive, userWeeklyFlightsOfStairs;
 let userRepo, currentUser, userData, activityData, sleepData, hydrationData;
 
 //HOME PAGE QS
 const homeBtn = document.getElementById('homeButton');
 const homePage = document.getElementById('homePage');
 const headerMessage = document.getElementById('headerMessage');
-const headerDate = document.getElementById('headerDate')
+const headerDate = document.getElementById('headerDate');
+const userStepGoal = document.getElementById('userStepGoal');
 //HYDRATION PAGE QS
 const hydrationBtn = document.getElementById('hydrationButton');
 const hydrationPage = document.getElementById('hydrationPage');
@@ -75,8 +77,8 @@ function loadPage() {
   displayHomeData();
 }
 
-function getPrettyDate(date) {
-  var date = new Date(date);
+function getPrettyDate(currDate) {
+  var date = new Date(currDate);
   let str = date.toDateString();
   return str
 }
@@ -116,9 +118,9 @@ function viewHydration() {
 }
 
 function displayWeekHydrationChart() {
-  if(userWeeklyWater!=undefined){
-        userWeeklyWater.destroy();
-    }
+  if (userWeeklyWater !== undefined) {
+    userWeeklyWater.destroy();
+  }
   userWeeklyWater = new Chart(weeklyHydrationChart, {
     type: 'bar',
     data: {
@@ -160,10 +162,10 @@ function displayAvgSleepData() {
 }
 
 function displayWeeklySleepHoursChart() {
-  if(userWeeklySleepHrs!=undefined){
-        userWeeklySleepHrs.destroy();
-    }
- userWeeklySleepHrs = new Chart(weeklySleepHrsChart, {
+  if (userWeeklySleepHrs !== undefined) {
+    userWeeklySleepHrs.destroy();
+  }
+  userWeeklySleepHrs = new Chart(weeklySleepHrsChart, {
     type: 'bar',
     data: {
       labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
@@ -182,9 +184,9 @@ function displayWeeklySleepHoursChart() {
 }
 
 function displayWeeklySleepQualChart() {
-  if(userWeeklySleepQual!=undefined){
-        userWeeklySleepQual.destroy();
-    }
+  if (userWeeklySleepQual !== undefined) {
+    userWeeklySleepQual.destroy();
+  }
   userWeeklySleepQual = new Chart(weeklySleepQualChart, {
     type: 'bar',
     data: {
@@ -249,10 +251,10 @@ function displayActivityStatComparison() {
       Stairs: ${stairComparison}%`;
 }
 
-function displayWeeklyStepsChart(){
-  if(userWeeklySteps!=undefined){
-        userWeeklySteps.destroy();
-    }
+function displayWeeklyStepsChart() {
+  if (userWeeklySteps !== undefined) {
+    userWeeklySteps.destroy();
+  }
   userWeeklySteps = new Chart(weeklyStepsChart, {
     type: 'bar',
     data: {
@@ -271,10 +273,10 @@ function displayWeeklyStepsChart(){
   });
 }
 
-function displayWeeklyMinActiveChart(){
-    if(userWeeklyMinActive!=undefined){
-        userWeeklyMinActive.destroy();
-    }
+function displayWeeklyMinActiveChart() {
+  if (userWeeklyMinActive !== undefined) {
+    userWeeklyMinActive.destroy();
+  }
   userWeeklyMinActive = new Chart(weeklyMinActiveChart, {
     type: 'bar',
     data: {
@@ -293,10 +295,10 @@ function displayWeeklyMinActiveChart(){
   });
 }
 
-function displayWeeklyFlightsChart(){
-  if(userWeeklyFlightsOfStairs!=undefined){
-        userWeeklyFlightsOfStairs.destroy();
-    }
+function displayWeeklyFlightsChart() {
+  if (userWeeklyFlightsOfStairs !== undefined) {
+    userWeeklyFlightsOfStairs.destroy();
+  }
   userWeeklyFlightsOfStairs = new Chart(weeklyFlightsChart, {
     type: 'bar',
     data: {
@@ -325,8 +327,3 @@ function viewActivity() {
 function hide(elements) {
   elements.forEach(element => element.classList.add('hidden'));
 }
-
-function show(elements) {
-  elements.forEach(element => element.classList.remove('hidden'))
-}
- 

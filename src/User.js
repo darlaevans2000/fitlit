@@ -46,7 +46,7 @@ class User {
   //sleep
 
   getSleepDataByDate(sleepData, date, property) {
-   const usersData = sleepData.filter(entry => entry.userID === this.id)
+    const usersData = sleepData.filter(entry => entry.userID === this.id)
     const entry = usersData.find(entry => entry.date === date)
     
     return entry[property];
