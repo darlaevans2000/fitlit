@@ -34,8 +34,8 @@
           </article>
           <article class='weekly-water'>
             <h1>WEEKLY WATER</h1>
-            <div class='data-small' id='userWeeklyWater'>user weekly water</div>
-            <!-- Weekly hydration Chart insert here -->
+            <div class='data-small' id='userWeeklyWater'></div>
+            <canvas id="userWeeklyWaterChart" width="400" height="70"></canvas>
           </article>
           </div>
         </section>
@@ -56,9 +56,8 @@
           </article>
           <article class='weekly-sleep' id='weeklySleep'>
             <h1>WEEKLY SLEEP</h1>
-              <canvas id="myChart" width="400" height="400"></canvas>
-
-            <!-- 2 graphs with weekly sleep hrs and weekly sleep quality-->
+              <canvas id="userWeeklySleepHrsChart" width="200" height="65"></canvas>
+              <canvas id="userWeeklySleepQualChart" width="200" height="65"></canvas>
           </article>
           </div>
         </section>
@@ -76,9 +75,11 @@
             <div class='data-medium' id='userDailyMinActive'>user daily activity</div>
           </article>
           <article class='weekly-activity' id='weeklyActivity'>
-            <h1>WEEKLY MIN: </h1>
+            <h1>WEEKLY STATS:</h1>
             <div class='user-weekly-activity' id='userWeeklyActivity'></div>
-            <!-- graph displaying user's weekly minutes active -->
+            <canvas id="weeklyStepsChart" width="200" height="65"></canvas>
+            <canvas id="weeklyMinActiveChart" width="200" height="65"></canvas>
+            <canvas id="weeklyFlightsChart" width="200" height="65"></canvas>
           </article>
           <article class='compare-users' id='compareUsers'>
             <h1>COMPARED TO OTHER USERS TODAY: </h1>

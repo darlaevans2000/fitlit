@@ -53,7 +53,7 @@ describe('User', () => {
     expect(user1.returnFirstName()).to.equal('Herminia');
   })
 
-//hydration
+  //hydration
   it('should be able to retrieve the ounces consumed by a user on a specific date', function() {
     const numOunces = user1.getDailyOunces('2019/06/18', hydrationTestData);
     

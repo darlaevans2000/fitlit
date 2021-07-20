@@ -12,6 +12,7 @@ h1 {
   font-weight: bold;
   font-size: 2vw;
   align-self: center;
+  margin: none;
 }
 
 h2 {
@@ -272,6 +273,7 @@ section {
   width: 65vw;
   height: 38vh;
 }
+
 
 
 /* activity page */
