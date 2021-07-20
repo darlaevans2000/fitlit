@@ -25,15 +25,18 @@ section {
   height: 80vh;
   width: 80vw;
   justify-content: center;
-  margin-left: 4%;
+  margin-left: 6%;
 }
 
+
+/* buttons */
 .home-button {
   height: 10vh;
   width: 12vw;
   background-color: #F0EDEE;
   color: #07393C;
   border-radius: 20px;
+  font-size: 24px;
 }
 
 .hydration-button {
@@ -42,6 +45,7 @@ section {
   background-color: #F0EDEE;
   color: #07393C;
   border-radius: 20px;
+  font-size: 24px;
 }
 
 .sleep-button {
@@ -50,6 +54,7 @@ section {
   background-color: #F0EDEE;
   color: #07393C;
   border-radius: 20px;
+  font-size: 24px;
 }
 
 .activity-button {
@@ -58,6 +63,7 @@ section {
   background-color: #F0EDEE;
   color: #07393C;
   border-radius: 20px;
+  font-size: 24px;
 }
 
 .user-button {
@@ -66,54 +72,44 @@ section {
   background-color: #F0EDEE;
   color: #07393C;
   border-radius: 20px;
-
+  font-size: 24px;
 }
 
+/* hidden */
 .hidden {
   display: none!important;
 }
 
+/* home */
 .home-page {
-  background-color: #2C666E;
+  background-color: #4C5C68;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 3px 3px 10px black;
-
-}
-
-.user-info {
-  background-color: #2C666E;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 3px 3px 10px black;
+  flex-direction: column;
+  width: 100%;
+  height: 95%;
 }
 
 .header-banner {
   display: flex;
   height: 3%;
   justify-content: space-between;
-  background-color: #90DDF0;
-  /* padding: 5% 10% 8% 10%; */
+  background-color: #222222
 }
 
 .header-date {
-  font-size: 2vw;
-  margin-top: 7%;
+  font-size: 3vw;
   margin-left: 3%;
-  background-color: #2C666E;
   color: #F0EDEE;
-  box-shadow: 3px 3px 10px black;
+  
 }
 
 .header-message {
   font-size: 4vw;
   max-width: 50vw;
-  margin: 5% 2% 2% 1%;
-  background-color: #2C666E;
   color: #F0EDEE;
-  box-shadow: 3px 3px 10px black;
 }
 
 .data-small {
@@ -125,7 +121,7 @@ section {
 
 .data-medium {
   font-weight: bold;
-  font-size: 12pt;
+  font-size: 9pt;
   color: black;
 }
 
@@ -138,7 +134,7 @@ section {
 }
 
 .main-page {
-  background-color: #90DDF0;
+  background-color: #222222;
 }
 
 .nav-bar {
@@ -157,10 +153,11 @@ section {
   align-items: center;
   padding-right: 3%;
   padding-left: 3%;
-  width: 75%;
-  height: 50%;
+  width: 85%;
+  height: 90%;
 }
 
+/* user info page */
 .user-info-box {
   background-color: #F0EDEE;
   color: #07393C;
@@ -169,28 +166,30 @@ section {
   align-items: center;
   padding-right: 3%;
   padding-left: 3%;
-  width: 75%;
-  height: 50%;
+  width: 90%;
+  height: 95%;
 }
 
+/* hydration page */
 .hydration-page {
- background-color: #2C666E;
+  background-color: #4C5C68;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 3px 3px 10px black;
-  /* width:100%; */
+  flex-direction: column;
+  width: 100%;
+  height: 95%;
 }
 
 .hydration-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 3vh;
-  grid-row-gap: 3vh;
-  padding-bottom: 3vh;
-  height: 50vh;
-  margin-left: 3vw;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  grid-column-gap: 1vh;
+  grid-row-gap: 1vh;
+  height: 65vh;
+  margin-left: 5vw;
 }
 
 .daily-water {
@@ -198,23 +197,147 @@ section {
   grid-area: 1 / 1 / 4 / 7;
   color: #07393C;
   border-radius: 20px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding-right: 3%;
-  padding-left: 5%;
+  width: 65vw;
   height: 25vh;
-  width: 60vw;
 }
 
 .weekly-water {
   background-color: #F0EDEE;
-  grid-area: 4 / 1 / 7 / 7;
+  grid-area: 5 / 1 / 8 / 8;
   color: #07393C;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  padding-right: 3%;
-  padding-left: 5%;
+  width: 65vw;
+  height: 35vh;
+}
+
+
+/* sleep page */
+.sleep-page-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 3vh;
+  grid-row-gap: 3vh;
+  padding-bottom: 3vh;
+  height: 70vh;
+  width: 70vw;
+  margin-left: 3vw;
+}
+
+.sleep-page {
+ background-color: #4C5C68;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 95%;
+}
+
+.daily-sleep {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 1 / 1 / 4 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  width: 30vw;
+}
+
+.avg-sleep {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 1 / 4 / 4 / 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  width:  30vw;
+}
+
+.weekly-sleep {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 4 / 1 / 7 / 7;
+  border-radius: 20px;
+  flex-direction: row;
+  width: 65vw;
+  height: 38vh;
+}
+
+
+/* activity page */
+.activity-page {
+ background-color: #4C5C68;
+ border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 10px black;
+}
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 3vh;
+  grid-row-gap: 3vh;
+  padding-bottom: 3vh;
+  height: 70vh;
+  width: 70vw;
+  margin-left: 3vw;
+}
+
+.daily-steps {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 1 / 1 / 5 / 4;
+  border-radius: 20px;
+  flex-direction: column;
+  display: flex;
+  padding-bottom: 30px;
+  height: 40vh;
+  width: 30vw;
+} 
+
+.daily-activity {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 1 / 4 / 3 / 7;
+  border-radius: 20px;
+  flex-direction: column;
+  display: flex;
+}
+
+.weekly-activity {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 3 / 4 / 7 / 7;
+  border-radius: 20px;
+}
+
+.compare-users {
+  background-color: #F0EDEE;
+  color: #07393C;
+  grid-area: 5 / 1 / 7 / 4;
+  border-radius: 20px;
+  flex-direction: column;
+  display: flex;
   height: 25vh;
-  width: 60vw;
+  justify-content: center;
+}
+
+.compareUserDailyActivity {
+  padding-left: 7%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
 }
