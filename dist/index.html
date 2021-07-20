@@ -41,6 +41,7 @@
         </section>
 
         <section class='sleep-page hidden' id='sleepPage'>
+          <div class='sleep-page-grid'>
           <article class='daily-sleep' id='dailySleep'>
             <h2>DAILY HOURS SLEPT</h2>
             <div class='data-medium' id='userHoursSlept'></div>
@@ -59,36 +60,39 @@
 
             <!-- 2 graphs with weekly sleep hrs and weekly sleep quality-->
           </article>
+          </div>
         </section>
 
         <section class='activity-page hidden' id='activityPage'>
+          <div class="activity-grid">
           <article class='daily-steps' id='dailySteps'>
-            <h1>DAILY STEPS</h1>
+            <h1>DAILY STEPS: </h1>
             <div class='data-medium' id='userDailyStepCount'>user daily steps</div>
-            <h1>MILES WALKED</h1>
+            <h1>MILES WALKED: </h1>
             <div class='data-medium' id='userDailyDistance'>user daily distance</div>
           </article>
           <article class='daily-activity' id='dailyActivity'>
-            <h1>MIN ACTIVE</h1>
+            <h1>MIN ACTIVE: </h1>
             <div class='data-medium' id='userDailyMinActive'>user daily activity</div>
           </article>
           <article class='weekly-activity' id='weeklyActivity'>
-            <h1>WEEKLY MIN</h1>
+            <h1>WEEKLY MIN: </h1>
             <div class='user-weekly-activity' id='userWeeklyActivity'></div>
             <!-- graph displaying user's weekly minutes active -->
           </article>
           <article class='compare-users' id='compareUsers'>
-            <h1>COMPARED TO OTHER USERS TODAY</h1>
-            <div class='data-small' id='compareUserDailyActivity'>compare user activity</div>
+            <h1>COMPARED TO OTHER USERS TODAY: </h1>
+            <div class='data-medium' id='compareUserDailyActivity'>compare user activity</div>
           </article>
+          </div>
         </section>
 
         <section class='user-info hidden' id='userInfo'>
           <article class='user-info-box' id='userInfoBox'>
-            <p class='data-small' id='name'>name</p>
-            <p class='data-small' id='address'>address</p>
-            <p class='data-small' id='email'>email</p>
-            <p class='data-small' id='stride'>stride</p>
+            <p class='data-medium' id='name'>name</p>
+            <p class='data-medium' id='address'>address</p>
+            <p class='data-medium' id='email'>email</p>
+            <p class='data-medium' id='stride'>stride</p>
           </article>
         </section>
 
