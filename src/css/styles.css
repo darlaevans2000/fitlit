@@ -3,8 +3,6 @@
  http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain) */
-
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,13 +16,13 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}  
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
 * {
   font-family: Didot, serif;
@@ -37,15 +35,14 @@ html {
 
 /* computers */
 @media (min-width:460px) {
-
-h1 {
+  h1 {
     font-weight: bold;
     font-size: 35px;
     align-self: center;
     margin: none;
     padding: 3%;
   }
-  
+
   h2 {
     font-weight: bold;
     font-size: 25px;
@@ -58,7 +55,7 @@ h1 {
     align-self: center;
     padding: 3%;
   }
-  
+
   section {
     display: flex;
     height: 80vh;
@@ -68,185 +65,183 @@ h1 {
   }
 
   .data-small {
-  font-weight: bold;
-  font-size: 15pt;
-  align-self: center;
-  color: black;
-}
+    font-weight: bold;
+    font-size: 15pt;
+    align-self: center;
+    color: black;
+  }
 
-.data-medium {
-  font-weight: bold;
-  font-size: 20pt;
-  color: black;
-}
+  .data-medium {
+    font-weight: bold;
+    font-size: 20pt;
+    color: black;
+  }
 
-.data-large {
-  font-weight: bold;
-  font-size: 25pt;
-  margin-top: 3%;
-  margin-bottom: 5%;
-  color: black;
-}
+  .data-large {
+    font-weight: bold;
+    font-size: 25pt;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    color: black;
+  }
 
-.header-date {
-  font-size: 2vw;
-  margin-left: 3%;
-  color: #F0EDEE;  
-}
+  .header-date {
+    font-size: 2vw;
+    margin-left: 3%;
+    color: #F0EDEE;
+  }
 
-.header-message {
-  font-size: 5vw;
-  max-width: 50vw;
-  color: #F0EDEE;
-}
+  .header-message {
+    font-size: 5vw;
+    max-width: 50vw;
+    color: #F0EDEE;
+  }
 
   .home-button {
-  height: 10vh;
-  width: 18vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 28px;
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
   }
-  
+
   .hydration-button {
-  height: 10vh;
-  width: 18vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 28px;
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
   }
-  
+
   .sleep-button {
-  height: 10vh;
-  width: 18vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 28px;
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
   }
-  
+
   .activity-button {
-  height: 10vh;
-  width: 18vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 28px;
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
   }
-  
+
   .user-button {
-  height: 10vh;
-  width: 18vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 28px;
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
   }
 
   .sleep-page {
- background-color: #4C5C68;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 235%;
-}
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 235%;
+  }
 
-.hydration-page {
-  background-color: #4C5C68;
-  border-radius: 20px;
-  display: flex;
-  padding-top: 2%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 200%;
-}
+  .hydration-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    padding-top: 2%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 200%;
+  }
 
-.weekly-water {
-  background-color: #F0EDEE;
-  grid-area: 4 / 1 / 8 / 9;
-  color: #07393C;
-  border-radius: 20px;
-  margin-right: 3%;
-  margin-left: 4%;
- /* justify-content: center; */
-  align-items: center;
-  width: 105%;
-  height: 150%;
-}
+  .weekly-water {
+    background-color: #F0EDEE;
+    grid-area: 4 / 1 / 8 / 9;
+    color: #07393C;
+    border-radius: 20px;
+    margin-right: 3%;
+    margin-left: 4%;
+    /* justify-content: center; */
+    align-items: center;
+    width: 105%;
+    height: 150%;
+  }
 
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  grid-column-gap: 5vw;
-  grid-row-gap: 5vh;
-  width: 100%;
-  height: 100%;
-  margin-left: 3vw;
-}
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 5vw;
+    grid-row-gap: 5vh;
+    width: 100%;
+    height: 100%;
+    margin-left: 3vw;
+  }
 
-.daily-activity {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 1 / 4 / 1 / 7;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  height: 20vh;
-}
+  .daily-activity {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 4 / 1 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 20vh;
+  }
 
-.compare-users {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 2 / 4 / 2 / 7;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  height: 50vh;
-  justify-content: center;
-}
+  .compare-users {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 2 / 4 / 2 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+  }
 
-.weekly-activity {
-  margin-top: 5%;
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 3 / 1 / 7 / 7;
-  border-radius: 20px;
-  height: 215vh;
-}
+  .weekly-activity {
+    margin-top: 5%;
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 3 / 1 / 7 / 7;
+    border-radius: 20px;
+    height: 215vh;
+  }
+
   .activity-page {
- background-color: #4C5C68;
- border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 310vh;
-  padding-right: 3%;
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 310vh;
+    padding-right: 3%;
+  }
+
+  .daily-steps {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 1 / 5 / 4;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 30px;
+    height: 70vh;
+    width: 100%;
+  }
 }
-
-.daily-steps {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 1 / 1 / 5 / 4;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  padding-bottom: 30px;
-  height: 70vh;
-  width: 100%;
-} 
-
-}
-
-
 
 /* buttons */
 .nav-bar {
@@ -258,7 +253,7 @@ h1 {
 
 /* hidden */
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 /* home */
@@ -306,7 +301,6 @@ h1 {
 }
 
 /* hydration page */
-
 .hydration-grid {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -329,22 +323,21 @@ h1 {
   height: 100%;
 }
 
-
 .sleep-page-grid {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
-  gap: 3% 3% 3% 3%; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 3% 3% 3% 3%;
   width: 100%;
   height: 95%;
   margin-left: 3%;
-  grid-template-areas: 
+  grid-template-areas:
     "daily-sleep daily-sleep avg-sleep avg-sleep"
     "daily-sleep daily-sleep avg-sleep avg-sleep"
     "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"
     "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"
     "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"
-    "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"; 
+    "weekly-sleep weekly-sleep weekly-sleep weekly-sleep";
 }
 
 .daily-sleep {
@@ -382,11 +375,8 @@ h1 {
   height: 245%;
 }
 
-
-
 /* phone */
-@media (max-width:460px)  {
-  
+@media (max-width:460px) {
   h1 {
     font-weight: bold;
     font-size: 12px;
@@ -394,7 +384,7 @@ h1 {
     margin: none;
     padding: 3%;
   }
-  
+
   h2 {
     font-weight: bold;
     font-size: 8px;
@@ -407,7 +397,7 @@ h1 {
     align-self: center;
     padding: 3%;
   }
-  
+
   section {
     display: flex;
     height: 80vh;
@@ -417,179 +407,179 @@ h1 {
   }
 
   .data-small {
-  font-weight: bold;
-  font-size: 5pt;
-  align-self: center;
-  color: black;
-}
+    font-weight: bold;
+    font-size: 5pt;
+    align-self: center;
+    color: black;
+  }
 
-.data-medium {
-  font-weight: bold;
-  font-size: 8pt;
-  color: black;
-}
+  .data-medium {
+    font-weight: bold;
+    font-size: 8pt;
+    color: black;
+  }
 
-.data-large {
-  font-weight: bold;
-  font-size: 9pt;
-  margin-top: 3%;
-  margin-bottom: 5%;
-  color: black;
-}
+  .data-large {
+    font-weight: bold;
+    font-size: 9pt;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    color: black;
+  }
 
-.header-date {
-  font-size: 4vw;
-  margin-left: 3%;
-  color: #F0EDEE;
-  
-}
+  .header-date {
+    font-size: 4vw;
+    margin-left: 3%;
+    color: #F0EDEE;
+  }
 
-.header-message {
-  font-size: 5vw;
-  max-width: 50vw;
-  color: #F0EDEE;
-}
+  .header-message {
+    font-size: 5vw;
+    max-width: 50vw;
+    color: #F0EDEE;
+  }
 
   .home-button {
-  height: 6vh;
-  width: 20vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 12px;
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
   }
-  
+
   .hydration-button {
-  height: 6vh;
-  width: 20vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 12px;
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
   }
-  
+
   .sleep-button {
-  height: 6vh;
-  width: 20vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 12px;
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
   }
-  
+
   .activity-button {
-  height: 6vh;
-  width: 20vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 12px;
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
   }
-  
+
   .user-button {
-  height: 6vh;
-  width: 20vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 12px;
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
   }
 
-.hydration-page {
-  background-color: #4C5C68;
-  border-radius: 20px;
-  display: flex;
-  padding-top: 2%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 95%;
-}
+  .hydration-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    padding-top: 2%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 95%;
+  }
 
-.weekly-water {
-  background-color: #F0EDEE;
-  grid-area: 5 / 1 / 8 / 9;
-  color: #07393C;
-  border-radius: 20px;
-  margin-right: 3%;
-  margin-left: 4%;
-  align-items: center;
-  width: 105%;
-  height: 155%;
-}
+  .weekly-water {
+    background-color: #F0EDEE;
+    grid-area: 5 / 1 / 8 / 9;
+    color: #07393C;
+    border-radius: 20px;
+    margin-right: 3%;
+    margin-left: 4%;
+    align-items: center;
+    width: 105%;
+    height: 155%;
+  }
 
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  grid-column-gap: 3%;
-  grid-row-gap: 3%;
-  width: 100%;
-  height: 100%;
-  margin-left: 3vw;
-}
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 3%;
+    grid-row-gap: 3%;
+    width: 100%;
+    height: 100%;
+    margin-left: 3vw;
+  }
 
-.daily-activity {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 1 / 4 / 1 / 7;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  height: 130%;
-}
+  .daily-activity {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 4 / 1 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 130%;
+  }
 
-.weekly-activity {
-  margin-top: 9%;
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 3 / 1 / 7 / 7;
-  border-radius: 20px;
-  height: 200%;
-}
+  .weekly-activity {
+    margin-top: 9%;
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 3 / 1 / 7 / 7;
+    border-radius: 20px;
+    height: 200%;
+  }
 
-.compare-users {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 2 / 4 / 2 / 7;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  height: 115%;
-  justify-content: center;
-}
+  .compare-users {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 2 / 4 / 2 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 115%;
+    justify-content: center;
+  }
 
-.daily-steps {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 1 / 1 / 5 / 4;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  padding-bottom: 30px;
-  height: 55%;
-  width: 100%;
-} 
+  .daily-steps {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 1 / 5 / 4;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 30px;
+    height: 55%;
+    width: 100%;
+  }
 
-.sleep-page {
- background-color: #4C5C68;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
+  .sleep-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
   .activity-page {
- background-color: #4C5C68;
- border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 160%;
-  padding-right: 3%;
-}
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 160%;
+    padding-right: 3%;
+  }
 }

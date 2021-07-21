@@ -1,4 +1,6 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import User from '../src/User';
 const userTestData = require('../src/data/userTestData')
 const hydrationTestData = require('../src/data/hydrationTestData')
@@ -56,10 +58,10 @@ describe('User', () => {
   //hydration
   it('should be able to retrieve the ounces consumed by a user on a specific date', function() {
     const numOunces = user1.getDailyOunces('2019/06/18', hydrationTestData);
-    
+
     expect(numOunces).to.equal(80);
   });
-  
+
   it('should calculate the average daily water intake for a user', function() {
     const avgDailyWater = user1.calculateAvgDailyWater(hydrationTestData);
 
@@ -69,7 +71,7 @@ describe('User', () => {
   it('should be able to retrieve the daily water intake for a user over the course of a week', function() {
     const ouncesOverWeek = user1.getWeeklyOunces('2019/06/15', hydrationTestData);
 
-    expect(ouncesOverWeek).to.deep.equal([ 100, 50, 20, 80, 60, 90, 100 ]);
+    expect(ouncesOverWeek).to.deep.equal([100, 50, 20, 80, 60, 90, 100]);
   });
 
   // sleep
@@ -99,17 +101,17 @@ describe('User', () => {
 
   it('should be able to retrieve the hours slept data for a user throughout a given week', function() {
     const hoursSleptWeek = user1.getSleepDataByWeek(sleepTestData, '2019/06/15', 'hoursSlept');
-    
-    expect(hoursSleptWeek).to.deep.equal([ 6, 6, 10, 8, 5, 10, 8 ]);
+
+    expect(hoursSleptWeek).to.deep.equal([6, 6, 10, 8, 5, 10, 8]);
   });
 
   it('should be able to retrieve the sleep quality data for a user throughout a given week', function() {
     const sleepQualityWeek = user1.getSleepDataByWeek(sleepTestData, '2019/06/15', 'sleepQuality');
 
-    expect(sleepQualityWeek).to.deep.equal([ 3, 2, 4, 4, 2, 4, 5 ]);
+    expect(sleepQualityWeek).to.deep.equal([3, 2, 4, 4, 2, 4, 5]);
   });
 
-  // Activity 
+  // Activity
   it('should be able to calculate the miles walked by a user on a specific date', function() {
     const userMiles = user1.getDailyMilesWalked(activityTestData, '2019/06/16');
 
@@ -146,7 +148,7 @@ describe('User', () => {
     expect(userStepGoalDays).to.deep.equal(['2019/06/17', '2019/06/18', '2019/06/20', '2019/06/21']);
   });
 
-  it('should retrieve the most flights climbed record for a user', function () {
+  it('should retrieve the most flights climbed record for a user', function() {
     const flightRecord = user1.getFlightsClimbedRecord(activityTestData);
 
     expect(flightRecord).to.equal(37);
@@ -154,18 +156,18 @@ describe('User', () => {
   it('should be able to retrieve the daily steps for a user over the course of a week', function() {
     const stepsOverWeek = user1.getActivityDataByWeek(activityTestData, '2019/06/15', 'numSteps');
 
-    expect(stepsOverWeek).to.deep.equal([ 3517, 3284, 10402, 8397, 3402, 13948, 12419 ]);
+    expect(stepsOverWeek).to.deep.equal([3517, 3284, 10402, 8397, 3402, 13948, 12419]);
   });
 
   it('should be able to retrieve the daily min active for a user over the course of a week', function() {
     const minOverWeek = user1.getActivityDataByWeek(activityTestData, '2019/06/15', 'minutesActive');
 
-    expect(minOverWeek).to.deep.equal([ 101, 78, 102, 54, 37, 320, 235 ]);
+    expect(minOverWeek).to.deep.equal([101, 78, 102, 54, 37, 320, 235]);
   });
 
   it('should be able to retrieve the daily flights of stairs for a user over the course of a week', function() {
     const flightsOverWeek = user1.getActivityDataByWeek(activityTestData, '2019/06/15', 'flightsOfStairs');
 
-    expect(flightsOverWeek).to.deep.equal([ 19, 10, 33, 23, 11, 30, 37 ]);
+    expect(flightsOverWeek).to.deep.equal([19, 10, 33, 23, 11, 30, 37]);
   });
 })

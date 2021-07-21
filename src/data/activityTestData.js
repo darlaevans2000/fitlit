@@ -1,5 +1,4 @@
-const activityTestData = [
-  {
+const activityTestData = [{
     "userID": 1,
     "date": "2019/06/15",
     "numSteps": 3517,

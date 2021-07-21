@@ -1,6 +1,9 @@
 import UserRepository from './UserRepository';
 import User from './User';
-import { Chart, registerables } from 'chart.js';
+import {
+  Chart,
+  registerables
+} from 'chart.js';
 Chart.register(...registerables);
 import './css/styles.css';
 import apiCalls from './data/apiCalls'
@@ -61,7 +64,7 @@ function getRandomIndex(array) {
 }
 
 //SET DATA, LOAD PAGE, HOME, USER INFO PG
-function setData () {
+function setData() {
   apiCalls.getData()
     .then(promise => {
       userData = promise[0]['userData'];

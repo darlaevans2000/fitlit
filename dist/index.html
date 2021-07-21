@@ -1,41 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity Tracker</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Tracker</title>
+</head>
 
-  <body>
-    <main class='main-page' id='mainPage'>
-      <header class='header-banner' id='headerBanner'>
-        <p class='header-date' id='headerDate'></p>
-        <h1 class='header-message' id='headerMessage'></h1>
-      </header>
-        <nav class='nav-bar' id='navBar'>
-         <button class='home-button' id='homeButton' aria-label='home button'>Home</button>
-            <button class='hydration-button' id='hydrationButton' aria-label='hydration button'>Hydration</button>
-             <button class='sleep-button' id='sleepButton' aria-label='sleep button'>Sleep</button>
-            <button class='activity-button' id='activityButton' aria-label='activity button'>Activity</button>
-            <button class='user-button' id='userButton' aria-label='user button'>User Info</button>
-        </nav>
+<body>
+  <main class='main-page' id='mainPage'>
+    <header class='header-banner' id='headerBanner'>
+      <p class='header-date' id='headerDate'></p>
+      <h1 class='header-message' id='headerMessage'></h1>
+    </header>
+    <nav class='nav-bar' id='navBar'>
+      <button class='home-button' id='homeButton' aria-label='home button'>Home</button>
+      <button class='hydration-button' id='hydrationButton' aria-label='hydration button'>Hydration</button>
+      <button class='sleep-button' id='sleepButton' aria-label='sleep button'>Sleep</button>
+      <button class='activity-button' id='activityButton' aria-label='activity button'>Activity</button>
+      <button class='user-button' id='userButton' aria-label='user button'>User Info</button>
+    </nav>
 
-      <section class='grid-wrapper'>
+    <section class='grid-wrapper'>
 
-        <section class='home-page' id='homePage'>
-          <article class='step-goal' id='stepGoal'>
-            <h1>Step Goal</h1>
-            <h2>Your Goal:</h2>
-            <div class='data-medium' id='userStepGoal'></div>
-            <h2>Average User Goal:</h2>
-            <div class='data-medium' id='avgStepGoal'></div>
-          </article>
-        </section>
+      <section class='home-page' id='homePage'>
+        <article class='step-goal' id='stepGoal'>
+          <h1>Step Goal</h1>
+          <h2>Your Goal:</h2>
+          <div class='data-medium' id='userStepGoal'></div>
+          <h2>Average User Goal:</h2>
+          <div class='data-medium' id='avgStepGoal'></div>
+        </article>
+      </section>
 
-        <section class='hydration-page hidden' id='hydrationPage'>
-          <div class='hydration-grid'>
+      <section class='hydration-page hidden' id='hydrationPage'>
+        <div class='hydration-grid'>
           <article class='daily-water'>
             <h1>DAILY WATER</h1>
             <div class='data-large' id='userDailyWater'>user daily water</div>
@@ -44,14 +43,14 @@
             <h1>WEEKLY WATER</h1>
             <div class='data-small' id='userWeeklyWater'></div>
             <div class="chart-container" style="position: relative; height:100vh; width:70vw;">
-            <canvas id="userWeeklyWaterChart"></canvas>
+              <canvas id="userWeeklyWaterChart"></canvas>
             </div>
           </article>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <section class='sleep-page hidden' id='sleepPage'>
-          <div class="sleep-page-grid">
+      <section class='sleep-page hidden' id='sleepPage'>
+        <div class="sleep-page-grid">
           <article class='daily-sleep' id='dailySleep'>
             <h2>DAILY HOURS SLEPT</h2>
             <div class='data-medium' id='userHoursSlept'></div>
@@ -69,13 +68,13 @@
             <div class="chart-container" style="position: relative; height:100vh; width:70vw;">
               <canvas id="userWeeklySleepHrsChart"></canvas>
               <canvas id="userWeeklySleepQualChart"></canvas>
-              </div>
+            </div>
           </article>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <section class='activity-page hidden' id='activityPage'>
-          <div class="activity-grid">
+      <section class='activity-page hidden' id='activityPage'>
+        <div class="activity-grid">
           <article class='daily-steps' id='dailySteps'>
             <h1>DAILY STEPS: </h1>
             <div class='data-medium' id='userDailyStepCount'>user daily steps</div>
@@ -92,30 +91,31 @@
             <h1>WEEKLY STATS:</h1>
             <div class='user-weekly-activity' id='userWeeklyActivity'></div>
             <div class="chart-container" style="position: relative; height:100vh; width:70vw;">
-            <canvas id="weeklyStepsChart"></canvas>
-            <canvas id="weeklyMinActiveChart"></canvas>
-            <canvas id="weeklyFlightsChart"></canvas>
+              <canvas id="weeklyStepsChart"></canvas>
+              <canvas id="weeklyMinActiveChart"></canvas>
+              <canvas id="weeklyFlightsChart"></canvas>
             </div>
           </article>
           <article class='compare-users' id='compareUsers'>
             <h1>COMPARED TO OTHER USERS TODAY: </h1>
             <div class='data-medium' id='compareUserDailyActivity'>compare user activity</div>
           </article>
-          </div>
-        </section>
-
-        <section class='user-info hidden' id='userInfo'>
-          <article class='user-info-box' id='userInfoBox'>
-            <p class='data-medium' id='name'>name</p>
-            <p class='data-medium' id='address'>address</p>
-            <p class='data-medium' id='email'>email</p>
-            <p class='data-medium' id='stride'>stride</p>
-          </article>
-        </section>
-
+        </div>
       </section>
-</main>
-<!-- Do not include the scripts.js file here - it is done automatically by the webpack server -->
-    <script src="bundle.js"></script>
-  </body>
+
+      <section class='user-info hidden' id='userInfo'>
+        <article class='user-info-box' id='userInfoBox'>
+          <p class='data-medium' id='name'>name</p>
+          <p class='data-medium' id='address'>address</p>
+          <p class='data-medium' id='email'>email</p>
+          <p class='data-medium' id='stride'>stride</p>
+        </article>
+      </section>
+
+    </section>
+  </main>
+  <!-- Do not include the scripts.js file here - it is done automatically by the webpack server -->
+  <script src="bundle.js"></script>
+</body>
+
 </html>

@@ -18,7 +18,7 @@ class UserRepository {
   }
 
   getAvgSleepQualityAllUsers(sleepData) {
-    const sleepQualityData = sleepData.map(entry => entry.sleepQuality);    
+    const sleepQualityData = sleepData.map(entry => entry.sleepQuality);
     const total = sleepQualityData.reduce((sum, sleepQuality) => {
       return sum + sleepQuality;
     });

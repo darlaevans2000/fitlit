@@ -1,4 +1,6 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import Activity from '../src/Activity';
 const activityTestData = require('../src/data/activityTestData');
 

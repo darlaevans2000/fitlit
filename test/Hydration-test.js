@@ -1,4 +1,6 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 // import User from '../src/User';
 import Hydration from '../src/Hydration';
 const hydrationTestData = require('../src/data/hydrationTestData');

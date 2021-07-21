@@ -16,13 +16,13 @@ class User {
 
   //hydration
   getDailyOunces(date, hydrationData) {
-    const entry = hydrationData.find(entry => { 
+    const entry = hydrationData.find(entry => {
       entry.date === date
       if ((entry.date === date) && (entry.userID === this.id)) {
         return entry.numOunces;
       }
     })
-    
+
     return entry.numOunces;
   }
 
@@ -31,7 +31,7 @@ class User {
     const totalOunces = dailyOunces.reduce((sumOz, numOz) => {
       return sumOz + numOz;
     });
-  
+
     return Math.round(totalOunces / hydrationData.length);
   }
 
@@ -48,7 +48,7 @@ class User {
   getSleepDataByDate(sleepData, date, property) {
     const usersData = sleepData.filter(entry => entry.userID === this.id)
     const entry = usersData.find(entry => entry.date === date)
-    
+
     return entry[property];
   }
 
@@ -122,7 +122,7 @@ class User {
     const sortedEntries = usersData.sort((a, b) => {
       return b.flightsOfStairs - a.flightsOfStairs;
     })
-    const [ maxFlights ] = sortedEntries;
+    const [maxFlights] = sortedEntries;
 
     return maxFlights.flightsOfStairs;
   }

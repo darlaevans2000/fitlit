@@ -1,4 +1,6 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import Sleep from '../src/Sleep';
 const data = require('../src/data/sleepTestData');
 
