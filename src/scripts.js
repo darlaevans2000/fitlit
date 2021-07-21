@@ -54,14 +54,13 @@ hydrationBtn.addEventListener("click", viewHydration);
 sleepBtn.addEventListener("click", viewSleep);
 activityBtn.addEventListener("click", viewActivity);
 
-
-
+// GET RANDOM
 function getRandomIndex(array) {
   const index = Math.floor(Math.random() * array.length);
   return index;
 }
 
-
+//SET DATA, LOAD PAGE, HOME, USER INFO PG
 function setData () {
   apiCalls.getData()
     .then(promise => {
@@ -111,14 +110,7 @@ function viewHome() {
   hide([hydrationPage, sleepPage, activityPage, userInfoPage])
 }
 
-function viewHydration() {
-  hydrationPage.classList.remove('hidden')
-  hide([sleepPage, activityPage, userInfoPage, homePage])
-  const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
-  dailyWater.innerText = `${dailyOz} oz`;
-  displayWeekHydrationChart()
-}
-
+// CHARTS
 function displayWeekHydrationChart() {
   if (userWeeklyWater !== undefined) {
     userWeeklyWater.destroy();
@@ -129,7 +121,7 @@ function displayWeekHydrationChart() {
       labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
       datasets: [{
         label: 'Ounces of Water',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#4d65f0',
         data: currentUser.getWeeklyOunces(startDate, hydrationData),
       }],
     },
@@ -139,28 +131,6 @@ function displayWeekHydrationChart() {
       },
     }
   });
-}
-
-
-function displaySleepData() {
-  displayCurrentSleepData()
-  displayAvgSleepData()
-  displayWeeklySleepHoursChart()
-  displayWeeklySleepQualChart()
-}
-
-function displayCurrentSleepData() {
-  const dailyHoursSlept = currentUser.getSleepDataByDate(sleepData, currentDate, 'hoursSlept');
-  const dailySleepQuality = currentUser.getSleepDataByDate(sleepData, currentDate, 'sleepQuality');
-  userHoursSlept.innerText = `${dailyHoursSlept}`;
-  userSleepQuality.innerText = `${dailySleepQuality}`;
-}
-
-function displayAvgSleepData() {
-  const avgHoursSlept = currentUser.getAvgSleepData(sleepData, 'hoursSlept');
-  const avgSleepQuality = currentUser.getAvgSleepData(sleepData, 'sleepQuality');
-  userAvgHoursSlept.innerText = `${avgHoursSlept}`;
-  userAvgSleepQuality.innerText = `${avgSleepQuality}`;
 }
 
 function displayWeeklySleepHoursChart() {
@@ -173,7 +143,7 @@ function displayWeeklySleepHoursChart() {
       labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
       datasets: [{
         label: 'Hours of Sleep',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#728cb5',
         data: currentUser.getSleepDataByWeek(sleepData, startDate, 'hoursSlept'),
       }],
     },
@@ -195,7 +165,7 @@ function displayWeeklySleepQualChart() {
       labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
       datasets: [{
         label: 'Sleep Quality',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#a172b5',
         data: currentUser.getSleepDataByWeek(sleepData, startDate, 'sleepQuality'),
       }],
     },
@@ -207,12 +177,110 @@ function displayWeeklySleepQualChart() {
   });
 }
 
+function displayWeeklyStepsChart() {
+  if (userWeeklySteps !== undefined) {
+    userWeeklySteps.destroy();
+  }
+  userWeeklySteps = new Chart(weeklyStepsChart, {
+    type: 'bar',
+    data: {
+      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
+      datasets: [{
+        label: 'Steps',
+        backgroundColor: '#ad1136',
+        data: currentUser.getActivityDataByWeek(activityData, startDate, 'numSteps'),
+      }],
+    },
+    options: {
+      legend: {
+        display: true
+      },
+    }
+  });
+}
+
+function displayWeeklyMinActiveChart() {
+  if (userWeeklyMinActive !== undefined) {
+    userWeeklyMinActive.destroy();
+  }
+  userWeeklyMinActive = new Chart(weeklyMinActiveChart, {
+    type: 'bar',
+    data: {
+      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
+      datasets: [{
+        label: 'Minutes Active',
+        backgroundColor: 'pink',
+        data: currentUser.getActivityDataByWeek(activityData, startDate, 'minutesActive'),
+      }],
+    },
+    options: {
+      legend: {
+        display: true
+      },
+    }
+  });
+}
+
+function displayWeeklyFlightsChart() {
+  if (userWeeklyFlightsOfStairs !== undefined) {
+    userWeeklyFlightsOfStairs.destroy();
+  }
+  userWeeklyFlightsOfStairs = new Chart(weeklyFlightsChart, {
+    type: 'bar',
+    data: {
+      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
+      datasets: [{
+        label: 'Flights of Stairs',
+        backgroundColor: '#2cb088',
+        data: currentUser.getActivityDataByWeek(activityData, startDate, 'flightsOfStairs'),
+      }],
+    },
+    options: {
+      legend: {
+        display: true
+      },
+    }
+  });
+}
+
+//HYDRATION PAGE
+function viewHydration() {
+  hydrationPage.classList.remove('hidden')
+  hide([sleepPage, activityPage, userInfoPage, homePage])
+  const dailyOz = currentUser.getDailyOunces(currentDate, hydrationData);
+  dailyWater.innerText = `${dailyOz} oz`;
+  displayWeekHydrationChart()
+}
+
+// SLEEP PAGE
+function displaySleepData() {
+  displayCurrentSleepData()
+  displayAvgSleepData()
+  displayWeeklySleepHoursChart()
+  displayWeeklySleepQualChart()
+}
+
+function displayCurrentSleepData() {
+  const dailyHoursSlept = currentUser.getSleepDataByDate(sleepData, currentDate, 'hoursSlept');
+  const dailySleepQuality = currentUser.getSleepDataByDate(sleepData, currentDate, 'sleepQuality');
+  userHoursSlept.innerText = `${dailyHoursSlept}`;
+  userSleepQuality.innerText = `${dailySleepQuality}`;
+}
+
+function displayAvgSleepData() {
+  const avgHoursSlept = currentUser.getAvgSleepData(sleepData, 'hoursSlept');
+  const avgSleepQuality = currentUser.getAvgSleepData(sleepData, 'sleepQuality');
+  userAvgHoursSlept.innerText = `${avgHoursSlept}`;
+  userAvgSleepQuality.innerText = `${avgSleepQuality}`;
+}
+
 function viewSleep() {
   sleepPage.classList.remove('hidden')
   hide([activityPage, userInfoPage, homePage, hydrationPage])
   displaySleepData()
 }
 
+// ACTIVITY PAGE
 function displayActivityData() {
   displayDailySteps()
   displayMinutesActive()
@@ -255,79 +323,13 @@ function displayActivityStatComparison() {
       Stairs: ${stairComparison}%`;
 }
 
-function displayWeeklyStepsChart() {
-  if (userWeeklySteps !== undefined) {
-    userWeeklySteps.destroy();
-  }
-  userWeeklySteps = new Chart(weeklyStepsChart, {
-    type: 'bar',
-    data: {
-      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
-      datasets: [{
-        label: 'Steps',
-        backgroundColor: 'lightblue',
-        data: currentUser.getActivityDataByWeek(activityData, startDate, 'numSteps'),
-      }],
-    },
-    options: {
-      legend: {
-        display: true
-      },
-    }
-  });
-}
-
-function displayWeeklyMinActiveChart() {
-  if (userWeeklyMinActive !== undefined) {
-    userWeeklyMinActive.destroy();
-  }
-  userWeeklyMinActive = new Chart(weeklyMinActiveChart, {
-    type: 'bar',
-    data: {
-      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
-      datasets: [{
-        label: 'Minutes Active',
-        backgroundColor: 'lightblue',
-        data: currentUser.getActivityDataByWeek(activityData, startDate, 'minutesActive'),
-      }],
-    },
-    options: {
-      legend: {
-        display: true
-      },
-    }
-  });
-}
-
-function displayWeeklyFlightsChart() {
-  if (userWeeklyFlightsOfStairs !== undefined) {
-    userWeeklyFlightsOfStairs.destroy();
-  }
-  userWeeklyFlightsOfStairs = new Chart(weeklyFlightsChart, {
-    type: 'bar',
-    data: {
-      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'TODAY'],
-      datasets: [{
-        label: 'Flights of Stairs',
-        backgroundColor: 'lightblue',
-        data: currentUser.getActivityDataByWeek(activityData, startDate, 'flightsOfStairs'),
-      }],
-    },
-    options: {
-      legend: {
-        display: true
-      },
-    }
-  });
-}
-
 function viewActivity() {
   activityPage.classList.remove('hidden')
   hide([userInfoPage, homePage, hydrationPage, sleepPage])
   displayActivityData()
 }
 
-
+//HIDE
 function hide(elements) {
   elements.forEach(element => element.classList.add('hidden'));
 }

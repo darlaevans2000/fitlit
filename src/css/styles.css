@@ -35,6 +35,7 @@ html {
   background-color: #222222;
 }
 
+/* computers */
 @media (min-width:460px) {
 
 h1 {
@@ -383,7 +384,7 @@ h1 {
 
 
 
-
+/* phone */
 @media (max-width:460px)  {
   
   h1 {
