@@ -151,19 +151,19 @@ describe('User', () => {
 
     expect(flightRecord).to.equal(37);
   });
-    it('should be able to retrieve the daily steps for a user over the course of a week', function() {
+  it('should be able to retrieve the daily steps for a user over the course of a week', function() {
     const stepsOverWeek = user1.getActivityDataByWeek(activityTestData, '2019/06/15', 'numSteps');
 
     expect(stepsOverWeek).to.deep.equal([ 3517, 3284, 10402, 8397, 3402, 13948, 12419 ]);
   });
 
-    it('should be able to retrieve the daily min active for a user over the course of a week', function() {
+  it('should be able to retrieve the daily min active for a user over the course of a week', function() {
     const minOverWeek = user1.getActivityDataByWeek(activityTestData, '2019/06/15', 'minutesActive');
 
     expect(minOverWeek).to.deep.equal([ 101, 78, 102, 54, 37, 320, 235 ]);
   });
 
-    it('should be able to retrieve the daily flights of stairs for a user over the course of a week', function() {
+  it('should be able to retrieve the daily flights of stairs for a user over the course of a week', function() {
     const flightsOverWeek = user1.getActivityDataByWeek(activityTestData, '2019/06/15', 'flightsOfStairs');
 
     expect(flightsOverWeek).to.deep.equal([ 19, 10, 33, 23, 11, 30, 37 ]);
