@@ -7,8 +7,9 @@ import {
 Chart.register(...registerables);
 import './css/styles.css';
 import apiCalls from './data/apiCalls'
-const currentDate = '2019/09/21';
-const startDate = '2019/09/15';
+
+const currentDate = '2019/10/31';
+const startDate = '2019/10/25';
 let userWeeklyWater, userWeeklySleepHrs, userWeeklySleepQual, userWeeklySteps;
 let userWeeklyMinActive, userWeeklyFlightsOfStairs;
 let userRepo, currentUser, userData, activityData, sleepData, hydrationData;
