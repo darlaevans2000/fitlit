@@ -35,6 +35,7 @@ const activityPage = document.getElementById('activityPage');
 const activityBtn = document.getElementById('activityButton');
 const userDailyStepCount = document.getElementById('userDailyStepCount');
 const userDailyDistance = document.getElementById('userDailyDistance');
+const userDailyFlightCount = document.getElementById('userDailyFlightCount');
 const userDailyMinActive = document.getElementById('userDailyMinActive');
 const compareUserDailyActivity = document.getElementById('compareUserDailyActivity');
 const weeklyStepsChart = document.getElementById('weeklyStepsChart');
@@ -52,6 +53,7 @@ homeBtn.addEventListener("click", viewHome);
 hydrationBtn.addEventListener("click", viewHydration);
 sleepBtn.addEventListener("click", viewSleep);
 activityBtn.addEventListener("click", viewActivity);
+
 
 
 function getRandomIndex(array) {
@@ -223,8 +225,10 @@ function displayActivityData() {
 function displayDailySteps() {
   const userDailySteps = currentUser.getActivityDataByDate(activityData, currentDate, 'numSteps');
   const userDistance = currentUser.getDailyMilesWalked(activityData, currentDate);
+  const userFlights = currentUser.getActivityDataByDate(activityData, currentDate, 'flightsOfStairs');
   userDailyStepCount.innerText = `${userDailySteps}`;
   userDailyDistance.innerText = `${userDistance}`;
+  userDailyFlightCount.innerText = `${userFlights}`;
 }
 
 function displayMinutesActive() {
