@@ -1,83 +1,259 @@
+/* HTML RESET
+
+ http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain) */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 * {
-  /* border: 1px solid #0A090C; */
   font-family: Didot, serif;
   font-variant: small-caps;
 }
 
 html {
-  background-color: #0A090C;
+  background-color: #222222;
 }
 
-h1 {
-  font-weight: bold;
-  font-size: 2vw;
-  align-self: center;
-}
+/* computers */
+@media (min-width:460px) {
+  h1 {
+    font-weight: bold;
+    font-size: 35px;
+    align-self: center;
+    margin: none;
+    padding: 3%;
+  }
 
-h2 {
-  font-weight: bold;
-  font-size: 1vw;
-  align-self: center;
-}
+  h2 {
+    font-weight: bold;
+    font-size: 25px;
+    align-self: center;
+    padding: 3%;
+  }
 
-section {
-  display: flex;
-  height: 80vh;
-  width: 80vw;
-  justify-content: center;
-  margin-left: 6%;
-}
+  p {
+    font-size: 20px;
+    align-self: center;
+    padding: 3%;
+  }
 
+  section {
+    display: flex;
+    height: 80vh;
+    width: 80vw;
+    justify-content: center;
+    margin-left: 6%;
+  }
+
+  .data-small {
+    font-weight: bold;
+    font-size: 15pt;
+    align-self: center;
+    color: black;
+  }
+
+  .data-medium {
+    font-weight: bold;
+    font-size: 20pt;
+    color: black;
+  }
+
+  .data-large {
+    font-weight: bold;
+    font-size: 25pt;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    color: black;
+  }
+
+  .header-date {
+    font-size: 2vw;
+    margin-left: 3%;
+    color: #F0EDEE;
+  }
+
+  .header-message {
+    font-size: 5vw;
+    max-width: 50vw;
+    color: #F0EDEE;
+  }
+
+  .home-button {
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
+  }
+
+  .hydration-button {
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
+  }
+
+  .sleep-button {
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
+  }
+
+  .activity-button {
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
+  }
+
+  .user-button {
+    height: 10vh;
+    width: 18vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 28px;
+  }
+
+  .sleep-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 235%;
+  }
+
+  .hydration-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    padding-top: 2%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 200%;
+  }
+
+  .weekly-water {
+    background-color: #F0EDEE;
+    grid-area: 4 / 1 / 8 / 9;
+    color: #07393C;
+    border-radius: 20px;
+    margin-right: 3%;
+    margin-left: 4%;
+    /* justify-content: center; */
+    align-items: center;
+    width: 105%;
+    height: 150%;
+  }
+
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 5vw;
+    grid-row-gap: 5vh;
+    width: 100%;
+    height: 100%;
+    margin-left: 3vw;
+  }
+
+  .daily-activity {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 4 / 1 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 20vh;
+  }
+
+  .compare-users {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 2 / 4 / 2 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+  }
+
+  .weekly-activity {
+    margin-top: 5%;
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 3 / 1 / 7 / 7;
+    border-radius: 20px;
+    height: 215vh;
+  }
+
+  .activity-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 310vh;
+    padding-right: 3%;
+  }
+
+  .daily-steps {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 1 / 5 / 4;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 30px;
+    height: 70vh;
+    width: 100%;
+  }
+}
 
 /* buttons */
-.home-button {
-  height: 10vh;
-  width: 12vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 24px;
-}
-
-.hydration-button {
-  height: 10vh;
-  width: 12vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 24px;
-}
-
-.sleep-button {
-  height: 10vh;
-  width: 12vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 24px;
-}
-
-.activity-button {
-  height: 10vh;
-  width: 12vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 24px;
-}
-
-.user-button {
-  height: 10vh;
-  width: 12vw;
-  background-color: #F0EDEE;
-  color: #07393C;
-  border-radius: 20px;
-  font-size: 24px;
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6vh;
 }
 
 /* hidden */
 .hidden {
-  display: none!important;
+  display: none !important;
 }
 
 /* home */
@@ -97,52 +273,6 @@ section {
   height: 3%;
   justify-content: space-between;
   background-color: #222222
-}
-
-.header-date {
-  font-size: 3vw;
-  margin-left: 3%;
-  color: #F0EDEE;
-  
-}
-
-.header-message {
-  font-size: 4vw;
-  max-width: 50vw;
-  color: #F0EDEE;
-}
-
-.data-small {
-  font-weight: bold;
-  font-size: 7pt;
-  align-self: center;
-  color: black;
-}
-
-.data-medium {
-  font-weight: bold;
-  font-size: 9pt;
-  color: black;
-}
-
-.data-large {
-  font-weight: bold;
-  font-size: 17pt;
-  margin-top: 3%;
-  margin-bottom: 5%;
-  color: black;
-}
-
-.main-page {
-  background-color: #222222;
-}
-
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #07393C;
-  box-shadow: 3px 3px 10px black;
 }
 
 .step-goal {
@@ -171,173 +301,285 @@ section {
 }
 
 /* hydration page */
-.hydration-page {
-  background-color: #4C5C68;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 95%;
-}
-
 .hydration-grid {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
-  grid-column-gap: 1vh;
-  grid-row-gap: 1vh;
-  height: 65vh;
-  margin-left: 5vw;
+  grid-row-gap: 8%;
+  width: 100%;
+  height: 95%;
 }
 
 .daily-water {
   background-color: #F0EDEE;
-  grid-area: 1 / 1 / 4 / 7;
+  grid-area: 1 / 1 / 4 / 9;
   color: #07393C;
   border-radius: 20px;
   justify-content: space-between;
   align-items: center;
-  width: 65vw;
-  height: 25vh;
+  margin-right: 3%;
+  margin-left: 4%;
+  width: 105%;
+  height: 100%;
 }
 
-.weekly-water {
-  background-color: #F0EDEE;
-  grid-area: 5 / 1 / 8 / 8;
-  color: #07393C;
-  border-radius: 20px;
-  justify-content: center;
-  align-items: center;
-  width: 65vw;
-  height: 35vh;
-}
-
-
-/* sleep page */
 .sleep-page-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 3vh;
-  grid-row-gap: 3vh;
-  padding-bottom: 3vh;
-  height: 70vh;
-  width: 70vw;
-  margin-left: 3vw;
-}
-
-.sleep-page {
- background-color: #4C5C68;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 3% 3% 3% 3%;
   width: 100%;
   height: 95%;
+  margin-left: 3%;
+  grid-template-areas:
+    "daily-sleep daily-sleep avg-sleep avg-sleep"
+    "daily-sleep daily-sleep avg-sleep avg-sleep"
+    "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"
+    "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"
+    "weekly-sleep weekly-sleep weekly-sleep weekly-sleep"
+    "weekly-sleep weekly-sleep weekly-sleep weekly-sleep";
 }
 
 .daily-sleep {
   background-color: #F0EDEE;
   color: #07393C;
-  grid-area: 1 / 1 / 4 / 4;
+  grid-area: 1 / 1 / 2 / 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  width: 30vw;
+  width: 185%;
 }
 
 .avg-sleep {
   background-color: #F0EDEE;
   color: #07393C;
-  grid-area: 1 / 4 / 4 / 7;
+  grid-area: 1 / 3 / 2 / 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  width:  30vw;
+  width: 185%;
 }
 
 .weekly-sleep {
   background-color: #F0EDEE;
   color: #07393C;
-  grid-area: 4 / 1 / 7 / 7;
+  grid-area: 2 / 1 / 4 / 4;
   border-radius: 20px;
   flex-direction: row;
-  width: 65vw;
-  height: 38vh;
+  margin-top: 3%;
+  width: 129%;
+  height: 245%;
 }
 
+/* phone */
+@media (max-width:460px) {
+  h1 {
+    font-weight: bold;
+    font-size: 12px;
+    align-self: center;
+    margin: none;
+    padding: 3%;
+  }
 
-/* activity page */
-.activity-page {
- background-color: #4C5C68;
- border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 3px 3px 10px black;
-}
+  h2 {
+    font-weight: bold;
+    font-size: 8px;
+    align-self: center;
+    padding: 3%;
+  }
 
-.activity-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  grid-column-gap: 3vh;
-  grid-row-gap: 3vh;
-  padding-bottom: 3vh;
-  height: 70vh;
-  width: 70vw;
-  margin-left: 3vw;
-}
+  p {
+    font-size: 15px;
+    align-self: center;
+    padding: 3%;
+  }
 
-.daily-steps {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 1 / 1 / 5 / 4;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  padding-bottom: 30px;
-  height: 40vh;
-  width: 30vw;
-} 
+  section {
+    display: flex;
+    height: 80vh;
+    width: 80vw;
+    justify-content: center;
+    margin-left: 6%;
+  }
 
-.daily-activity {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 1 / 4 / 3 / 7;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-}
+  .data-small {
+    font-weight: bold;
+    font-size: 5pt;
+    align-self: center;
+    color: black;
+  }
 
-.weekly-activity {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 3 / 4 / 7 / 7;
-  border-radius: 20px;
-}
+  .data-medium {
+    font-weight: bold;
+    font-size: 8pt;
+    color: black;
+  }
 
-.compare-users {
-  background-color: #F0EDEE;
-  color: #07393C;
-  grid-area: 5 / 1 / 7 / 4;
-  border-radius: 20px;
-  flex-direction: column;
-  display: flex;
-  height: 25vh;
-  justify-content: center;
-}
+  .data-large {
+    font-weight: bold;
+    font-size: 9pt;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    color: black;
+  }
 
-.compareUserDailyActivity {
-  padding-left: 7%;
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
+  .header-date {
+    font-size: 4vw;
+    margin-left: 3%;
+    color: #F0EDEE;
+  }
+
+  .header-message {
+    font-size: 5vw;
+    max-width: 50vw;
+    color: #F0EDEE;
+  }
+
+  .home-button {
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .hydration-button {
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .sleep-button {
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .activity-button {
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .user-button {
+    height: 6vh;
+    width: 20vw;
+    background-color: #F0EDEE;
+    color: #07393C;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+
+  .hydration-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    padding-top: 2%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 95%;
+  }
+
+  .weekly-water {
+    background-color: #F0EDEE;
+    grid-area: 5 / 1 / 8 / 9;
+    color: #07393C;
+    border-radius: 20px;
+    margin-right: 3%;
+    margin-left: 4%;
+    align-items: center;
+    width: 105%;
+    height: 155%;
+  }
+
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-column-gap: 3%;
+    grid-row-gap: 3%;
+    width: 100%;
+    height: 100%;
+    margin-left: 3vw;
+  }
+
+  .daily-activity {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 4 / 1 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 130%;
+  }
+
+  .weekly-activity {
+    margin-top: 9%;
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 3 / 1 / 7 / 7;
+    border-radius: 20px;
+    height: 200%;
+  }
+
+  .compare-users {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 2 / 4 / 2 / 7;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    height: 115%;
+    justify-content: center;
+  }
+
+  .daily-steps {
+    background-color: #F0EDEE;
+    color: #07393C;
+    grid-area: 1 / 1 / 5 / 4;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 30px;
+    height: 55%;
+    width: 100%;
+  }
+
+  .sleep-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .activity-page {
+    background-color: #4C5C68;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 160%;
+    padding-right: 3%;
+  }
 }

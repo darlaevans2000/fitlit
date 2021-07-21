@@ -1,4 +1,6 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import UserRepository from '../src/UserRepository';
 const userTestData = require('../src/data/userTestData.js');
 const sleepTestData = require('../src/data/sleepTestData')
@@ -38,19 +40,19 @@ describe('User Repository', () => {
     expect(avgSleepQuality).to.equal(3);
   });
 
-  it('should retrieve the average steps taken by all users on a given date', function () {
+  it('should retrieve the average steps taken by all users on a given date', function() {
     const avgStepsForAllUsers = userRepo.getAllUsersAvgByDate('2019/06/15', 'numSteps', activityTestData);
 
     expect(avgStepsForAllUsers).to.equal(7652);
   })
 
-  it('should retrieve the average minutes active for all users on a given date', function () {
+  it('should retrieve the average minutes active for all users on a given date', function() {
     const avgMinForAllUsers1 = userRepo.getAllUsersAvgByDate('2019/06/15', 'minutesActive', activityTestData);
 
     expect(avgMinForAllUsers1).to.equal(162);
   });
 
-  it('should retrieve the average flights climbed by all users on a given date', function () {
+  it('should retrieve the average flights climbed by all users on a given date', function() {
     const avgStairsForAllUsers1 = userRepo.getAllUsersAvgByDate('2019/06/15', 'flightsOfStairs', activityTestData);
 
     expect(avgStairsForAllUsers1).to.equal(26);

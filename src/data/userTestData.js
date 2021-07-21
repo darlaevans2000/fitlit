@@ -1,5 +1,4 @@
-const userTestData = [
-{
+const userTestData = [{
     "id": 1,
     "name": "Herminia Witting",
     "address": "85823 Bosco Fork, East Oscarstad MI 85126-5660",
